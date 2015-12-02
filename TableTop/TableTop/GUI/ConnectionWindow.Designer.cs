@@ -34,6 +34,8 @@
             this.ModeSelection = new System.Windows.Forms.ComboBox();
             this.modeLbl = new System.Windows.Forms.Label();
             this.isGM = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.UserName = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // ServerIP
@@ -47,11 +49,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(398, 611);
+            this.label1.Location = new System.Drawing.Point(398, 607);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 13);
+            this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Server IP: ";
+            this.label1.Text = "Server IP";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // ConnectButton
@@ -91,11 +93,29 @@
             this.isGM.Text = "Connect As GM";
             this.isGM.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(401, 562);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "User Name";
+            // 
+            // UserName
+            // 
+            this.UserName.Location = new System.Drawing.Point(478, 562);
+            this.UserName.Name = "UserName";
+            this.UserName.Size = new System.Drawing.Size(480, 20);
+            this.UserName.TabIndex = 7;
+            // 
             // ConnectionWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1584, 862);
+            this.Controls.Add(this.UserName);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.isGM);
             this.Controls.Add(this.modeLbl);
             this.Controls.Add(this.ModeSelection);
@@ -117,5 +137,7 @@
         private System.Windows.Forms.ComboBox ModeSelection;
         private System.Windows.Forms.Label modeLbl;
         private System.Windows.Forms.CheckBox isGM;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox UserName;
     }
 }

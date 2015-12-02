@@ -7,6 +7,7 @@ using System.ServiceModel;
 
 namespace TableTopServer.WCF_Service
 {
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]
     public class Server_WCF_Interface : IServer_WCF_Interface
     {
         Server_Driver server;
@@ -22,9 +23,18 @@ namespace TableTopServer.WCF_Service
             return string.Format("You entered: {0}", value);
         }
 
-        public void performConnection(Boolean isGM)
+        public void performConnection(String userName, Boolean isGM)
         {
             server.AddClient(Callback);
+        }
+
+        public void recieveChatInput(String chatType, String message)
+        {
+            // todo: set up story logger 
+            foreach (Client_WCF_Interface client in server.getClientList())
+            {
+                client.recieveChatInput(chatType, message);
+            }
         }
 
         public Client_WCF_Interface Callback

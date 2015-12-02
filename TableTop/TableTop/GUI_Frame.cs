@@ -15,9 +15,9 @@
     public partial class GUI_Frame : Form
     {
         Panel contentPane;
-        Form connectionForm;
-        Form mainGUI; 
-        WCF_Service.IServer_WCF_InterfaceChannel client = null;
+        ConnectionWindow connectionForm;
+        public MainGUI mainGUI;
+        TableTopServer.WCF_Service.IServer_WCF_Interface server = null;
 
         public GUI_Frame()
         {
@@ -43,24 +43,24 @@
         }
 
         /// <summary>
-        /// This method is used to perform the login of the client.  It sets up the WCF service.
+        /// This method is used to perform the login of the server.  It sets up the WCF service.
         /// </summary>
         /// <param name="IP">The IP of the server to connect to</param>
-        /// <param name="isGM">If the client is a GM or Player connection</param>
-        public void Perform_Login(String IP, Boolean isGM)
+        /// <param name="isGM">If the server is a GM or Player connection</param>
+        public void Perform_Login(String userName, String IP, Boolean isGM)
         {
             var myBinding = new NetTcpBinding();
             var myEndpoint = new EndpointAddress("net.tcp://" + IP + "/Design_Time_Addresses/ServiceLibrary/Comm/");
-            var myChannel = new DuplexChannelFactory<WCF_Service.IServer_WCF_InterfaceChannel>(new WCF_Client(), myBinding, myEndpoint);
+            var myChannel = new DuplexChannelFactory<TableTopServer.WCF_Service.IServer_WCF_Interface>(new WCF_Client(this), myBinding, myEndpoint);
 
-            client = myChannel.CreateChannel();
-            client.performConnection(isGM);
+            server = myChannel.CreateChannel();
+            server.performConnection(userName, isGM);
 
             Controls.Remove(connectionForm);
             connectionForm.Dispose();
             connectionForm = null;
 
-            mainGUI = new MainGUI();
+            mainGUI = new MainGUI(server, userName);
             contentPane.Controls.Add(mainGUI);
             mainGUI.Show();
 

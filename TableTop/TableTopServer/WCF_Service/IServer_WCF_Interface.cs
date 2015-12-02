@@ -16,13 +16,16 @@ namespace TableTopServer.WCF_Service
         string GetData(int value);
 
         [OperationContract]
-        void performConnection(Boolean isGM);
+        void performConnection(String userName, Boolean isGM);
+
+        [OperationContract]
+        void recieveChatInput(String chatType, String message);
     }
 
     [ServiceContract]
     public interface Client_WCF_Interface
     {
         [OperationContract]
-        void dummy();
+        void recieveChatInput(String chatType, String message);
     }
 }

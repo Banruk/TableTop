@@ -15,11 +15,20 @@
         ServiceHost myHost = null;
         Server_WCF_Interface wcf_server;
 
+        /*****************************************************
+         * 
+         * Initialization Methods
+         * 
+         *****************************************************/
+
         Server_Driver()
         {
             clients = new List<Client_WCF_Interface>();
         }
 
+        /// <summary>
+        /// Used for all initialization and causes the server to go into wait mode.
+        /// </summary>
         public void Run()
         {
 
@@ -30,6 +39,9 @@
 
         } // End Run
 
+        /// <summary>
+        /// Used to set up the WCF service.  Initalizes the service listener
+        /// </summary>
         public void Setup_WCF()
         {
             Uri baseAddress = new Uri("net.tcp://localhost:8733/Design_Time_Addresses/ServiceLibrary/Comm/");
@@ -46,12 +58,35 @@
             myHost.Open();
         } // End Setup_WCF
 
+        /// <summary>
+        /// Used to add another client connection to the server
+        /// </summary>
+        /// <param name="client"></param>
         public void AddClient(Client_WCF_Interface client)
         {
             clients.Add(client);
         } // End AddClient
 
+        /*****************************************************
+         * 
+         * Access Methods
+         * 
+         *****************************************************/
 
+        /// <summary>
+        /// Used to get the list of connected clients for use by the WCF service
+        /// </summary>
+        /// <returns>List of active client connections</returns>
+        public List<Client_WCF_Interface> getClientList()
+        {
+            return clients;
+        }
+
+        /*****************************************************
+         * 
+         * Static Methods
+         * 
+         *****************************************************/
         static void Main(string[] args)
         {
             Server_Driver driver = new Server_Driver();

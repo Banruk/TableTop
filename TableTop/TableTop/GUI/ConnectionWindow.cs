@@ -67,18 +67,23 @@ namespace TableTop
 
             public void ConnectionButton_Click(object sender, EventArgs e)
             {
+                ToolTip tip = new ToolTip();
                 String reg = "([1]{0,1}[0-9]{0,1}[0-9]|[2][0-4][0-9]|[2][5][0-5])";
                 reg = "^" + reg + "[.]" + reg + "[.]" + reg + "[.]" + reg + "[:][0-9]{1,5}$";
 
-                if (Regex.IsMatch(connWindow.ServerIP.Text.Trim(), reg))
+                if (String.IsNullOrEmpty(connWindow.UserName.Text))
                 {
-                    mainWindow.Perform_Login(connWindow.ServerIP.Text, connWindow.isGM.Checked);
+                    connWindow.UserName.BackColor = Color.Orange;
+                    tip.SetToolTip(connWindow.UserName, "Must enter a username");
+                }
+                else if (!Regex.IsMatch(connWindow.ServerIP.Text.Trim(), reg))
+                {
+                    connWindow.ServerIP.BackColor = Color.Red;
+                    tip.SetToolTip(connWindow.ServerIP, "Invalid IP, must be in the form of: XXX.XXX.XXX.XXX:XXXX");
                 }
                 else
                 {
-                    connWindow.ServerIP.BackColor = Color.Red;
-                    ToolTip tip = new ToolTip();
-                    tip.SetToolTip(connWindow.ServerIP, "Invalid IP, must be in the form of: XXX.XXX.XXX.XXX:XXXX");
+                    mainWindow.Perform_Login(connWindow.UserName.Text, connWindow.ServerIP.Text, connWindow.isGM.Checked);
                 }
 
 
