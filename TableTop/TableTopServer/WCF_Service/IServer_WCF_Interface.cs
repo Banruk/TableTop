@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ServiceModel;
+using System.Drawing;
 
 namespace TableTopServer.WCF_Service
 {
@@ -13,19 +14,34 @@ namespace TableTopServer.WCF_Service
     public interface IServer_WCF_Interface
     {
         [OperationContract]
-        string GetData(int value);
-
-        [OperationContract]
-        void performConnection(String userName, Boolean isGM);
+        int performConnection(String userName, Boolean isGM);
 
         [OperationContract]
         void recieveChatInput(String chatType, String message);
+
+        [OperationContract]
+        void updateUserProfile(int client_id, byte[] portrait);
+
+        [OperationContract]
+        void connectionClose(int client_id);
     }
 
     [ServiceContract]
     public interface Client_WCF_Interface
     {
         [OperationContract]
+        void newUserLoggedIn(int client_id, String user_name);
+
+        [OperationContract]
+        void loadLoggedInUsers(int client_id, byte[] portrait);
+
+        [OperationContract]
+        void updateUserProfile(int client_id, byte[] portrait);
+
+        [OperationContract]
         void recieveChatInput(String chatType, String message);
+
+        [OperationContract]
+        void clientDisconnected(int client_id);
     }
 }

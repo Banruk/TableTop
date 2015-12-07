@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.ServiceModel;
+    using System.ServiceModel.Description;
     using System.Text;
     using System.Threading.Tasks;
     using TableTopServer.WCF_Service;
@@ -11,7 +12,7 @@
 
     public class Server_Driver
     {
-        List<Client_WCF_Interface> clients;
+        List<ClientConnection> clients;
         ServiceHost myHost = null;
         Server_WCF_Interface wcf_server;
 
@@ -23,7 +24,7 @@
 
         Server_Driver()
         {
-            clients = new List<Client_WCF_Interface>();
+            clients = new List<ClientConnection>();
         }
 
         /// <summary>
@@ -52,6 +53,9 @@
             myHost.Description.Behaviors.Find<ServiceBehaviorAttribute>().IncludeExceptionDetailInFaults = true;
             myHost.Description.Behaviors.Find<ServiceBehaviorAttribute>().ConcurrencyMode = ConcurrencyMode.Multiple;
 
+            myHost.Description.Behaviors.Remove(typeof(ServiceDebugBehavior));
+            myHost.Description.Behaviors.Add(new ServiceDebugBehavior { IncludeExceptionDetailInFaults = true });
+
             var derp = myHost.Description.Behaviors.Find<ServiceBehaviorAttribute>();
             derp.InstanceContextMode = InstanceContextMode.Single; // Allows us to go into Singleton mode, which lets us to use Duplex Mode of WCF
 
@@ -61,10 +65,12 @@
         /// <summary>
         /// Used to add another client connection to the server
         /// </summary>
-        /// <param name="client"></param>
-        public void AddClient(Client_WCF_Interface client)
+        /// <param FirstName="client"></param>
+        public ClientConnection AddClient(Client_WCF_Interface client)
         {
-            clients.Add(client);
+            ClientConnection new_client = new ClientConnection(client);
+            clients.Add(new_client);
+            return new_client;
         } // End AddClient
 
         /*****************************************************
@@ -77,7 +83,7 @@
         /// Used to get the list of connected clients for use by the WCF service
         /// </summary>
         /// <returns>List of active client connections</returns>
-        public List<Client_WCF_Interface> getClientList()
+        public List<ClientConnection> getClientList()
         {
             return clients;
         }

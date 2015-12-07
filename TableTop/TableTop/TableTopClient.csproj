@@ -64,6 +64,21 @@
     <Compile Include="GUI\Portraits.Designer.cs">
       <DependentUpon>Portraits.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Portrait_Controls\Base_Other_Players.cs" />
+    <Compile Include="GUI\Portrait_Controls\Character_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Portrait_Controls\Character_Form.Designer.cs">
+      <DependentUpon>Character_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Portrait_Controls\GameSpecificCharacterSheets\Mistborn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Portrait_Controls\GameSpecificCharacterSheets\Mistborn.Designer.cs">
+      <DependentUpon>Mistborn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Portrait_Controls\GM_Player_Control.cs" />
+    <Compile Include="GUI\Portrait_Controls\Other_Player_Portraits.cs" />
     <Compile Include="GUI_Frame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,15 +99,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ConnectionWindow.resx">
       <DependentUpon>ConnectionWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Portraits.resx">
       <DependentUpon>Portraits.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Portrait_Controls\Character_Form.resx">
+      <DependentUpon>Character_Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Portrait_Controls\GameSpecificCharacterSheets\Mistborn.resx">
+      <DependentUpon>Mistborn.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI_Frame.resx">
       <DependentUpon>GUI_Frame.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\MainGUI.resx">
       <DependentUpon>MainGUI.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -120,6 +147,14 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Character\Character.csproj">
+      <Project>{7870afc3-0132-47a3-b8e8-55ffb61a75ed}</Project>
+      <Name>Character</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Shared_Resources\Shared_Resources.csproj">
+      <Project>{250f8b0e-da71-4bc0-b90d-ce8fa8b5f6db}</Project>
+      <Name>Shared_Resources</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TableTopServer\TableTopServer.csproj">
       <Project>{27a89516-e797-4f17-8a89-fb48e3ac86ef}</Project>
       <Name>TableTopServer</Name>

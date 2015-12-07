@@ -1,6 +1,6 @@
-﻿namespace TableTop.GUI
+﻿namespace CharacterTableTop.GUI.Portrait_Controls.GameSpecificCharacterSheets
 {
-    partial class Portraits
+    partial class Mistborn
     {
         /// <summary>
         /// Required designer variable.
@@ -28,34 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.PortraitPane = new System.Windows.Forms.FlowLayoutPanel();
+            this.CloseWindowButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // PortraitPane
+            // CloseWindowButton
             // 
-            this.PortraitPane.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PortraitPane.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.PortraitPane.Location = new System.Drawing.Point(0, 0);
-            this.PortraitPane.Name = "PortraitPane";
-            this.PortraitPane.Size = new System.Drawing.Size(184, 824);
-            this.PortraitPane.TabIndex = 0;
+            this.CloseWindowButton.Location = new System.Drawing.Point(1010, 12);
+            this.CloseWindowButton.Name = "CloseWindowButton";
+            this.CloseWindowButton.Size = new System.Drawing.Size(75, 23);
+            this.CloseWindowButton.TabIndex = 0;
+            this.CloseWindowButton.Text = "Close";
+            this.CloseWindowButton.UseVisualStyleBackColor = true;
             // 
-            // Portraits
+            // Mistborn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(184, 824);
-            this.Controls.Add(this.PortraitPane);
+            this.ClientSize = new System.Drawing.Size(1097, 791);
+            this.Controls.Add(this.CloseWindowButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Portraits";
-            this.Text = "PortraitPane";
+            this.Name = "Mistborn";
+            this.Text = "Mistborn";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel PortraitPane;
-
+        private System.Windows.Forms.Button CloseWindowButton;
     }
 }

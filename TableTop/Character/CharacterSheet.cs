@@ -13,13 +13,38 @@ namespace Character
     public class CharacterSheet
     {
         [DataMember]
-        String name;
-        [DataMember]
         Image portrait;
         [DataMember]
-        String race;
+        Image sprite;
+        [DataMember]
+        String FirstName;
+        [DataMember]
+        String LastName;
+        [DataMember]
+        String Age;
+        [DataMember]
+        String Race;
         [DataMember]
         String gender;
+        [DataMember]
+        String Weight;
+        [DataMember]
+        String Height;
 
+
+        public void SetPortrait(Image new_portrait)
+        {
+            portrait = new_portrait;
+        }
+
+        public Image GetPortrait()
+        {
+            return portrait;
+        }
+
+        public String getCharacterName()
+        {
+            return FirstName;
+        }
     }
 }

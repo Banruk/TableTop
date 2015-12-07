@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientConnection.cs" />
     <Compile Include="Server_Driver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\Communications.cs" />
@@ -53,6 +55,16 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Character\Character.csproj">
+      <Project>{7870afc3-0132-47a3-b8e8-55ffb61a75ed}</Project>
+      <Name>Character</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Shared_Resources\Shared_Resources.csproj">
+      <Project>{250f8b0e-da71-4bc0-b90d-ce8fa8b5f6db}</Project>
+      <Name>Shared_Resources</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
