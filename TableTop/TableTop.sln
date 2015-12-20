@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Character", "Character\Char
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared_Resources", "Shared_Resources\Shared_Resources.csproj", "{250F8B0E-DA71-4BC0-B90D-CE8FA8B5F6DB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapEditor", "MapEditor\MapEditor.csproj", "{C82AF056-8B34-4136-BE4C-E44701B62933}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{250F8B0E-DA71-4BC0-B90D-CE8FA8B5F6DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{250F8B0E-DA71-4BC0-B90D-CE8FA8B5F6DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{250F8B0E-DA71-4BC0-B90D-CE8FA8B5F6DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C82AF056-8B34-4136-BE4C-E44701B62933}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C82AF056-8B34-4136-BE4C-E44701B62933}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C82AF056-8B34-4136-BE4C-E44701B62933}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C82AF056-8B34-4136-BE4C-E44701B62933}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

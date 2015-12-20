@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Shared_Resources
 {
@@ -14,37 +15,31 @@ namespace Shared_Resources
     public static class Serialization
     {
         /// <summary>
-        /// Method used to serialize an object for transfer
+        /// Method for serializing objects to xml files
         /// </summary>
-        /// <param name="input">The object to be serialized</param>
-        /// <returns>A string representing the serialized object</returns>
-        public static string serialize(object input)
+        /// <param name="to_serialize">The object to serialize</param>
+        /// <param name="objectType">The type of the object to serialize</param>
+        /// <param name="file_path">The file path to save the object to</param>
+        public static void xml_serialize(object to_serialize, Type objectType, String file_path)
         {
-            using (MemoryStream mStream = new MemoryStream())
-            using (StreamReader reader = new StreamReader(mStream))
-            {
-                DataContractSerializer serializer = new DataContractSerializer(input.GetType());
-                serializer.WriteObject(mStream, input);
-                mStream.Position = 0;
-                return reader.ReadToEnd();
-            }
+            XmlSerializer xs = new XmlSerializer(objectType);
+            TextWriter tw = new StreamWriter(file_path);
+            xs.Serialize(tw, to_serialize);
+            tw.Close();
         }
 
         /// <summary>
-        /// This method is used to deserialize a given object.
+        /// Method for deserializing objects from xml files
         /// </summary>
-        /// <param name="input">The contents of the object to deserialize</param>
-        /// <param name="objType">The type of the object to deserialize</param>
-        /// <returns>The object after it has been deserialized</returns>
-        public static object deserialize(string input, Type objType)
+        /// <param name="objectType">The type of the object we're deserializing</param>
+        /// <param name="file_path">The path to the XML document to deserialize from</param>
+        /// <returns>The deserialized object</returns>
+        public static object xml_deserialize(Type objectType, String file_path)
         {
-            using (Stream stream = new MemoryStream())
+            XmlSerializer xs = new XmlSerializer(objectType);
+            using (var sr = new StreamReader(file_path))
             {
-                byte[] data = System.Text.Encoding.UTF8.GetBytes(input);
-                stream.Write(data, 0, data.Length);
-                stream.Position = 0;
-                DataContractSerializer deserializer = new DataContractSerializer(objType);
-                return deserializer.ReadObject(stream);
+                return xs.Deserialize(sr);
             }
         }
 

@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TableTop.Misc;
 
 namespace TableTop.GUI.Portrait_Controls
 {
-    class Other_Player_Portraits : Base_Other_Players
+    public class Other_Player_Portraits : Base_Other_Players
     {
         public int client_id
         {
@@ -25,9 +26,9 @@ namespace TableTop.GUI.Portrait_Controls
 
             otherPanel.Width = 150;
             otherPanel.Height = 150;
-            otherPanel.Margin = new Padding(18);
+            otherPanel.Margin = new Padding(16, 0, 0, 16);
 
-            otherPanel.BackColor = Color.Red; // To be changed
+            otherPanel.BackColor = Colors.ConvertColor(System.Configuration.ConfigurationManager.AppSettings["emptyPortraitColor"]);
         }
 
         override public Panel getPortrait()

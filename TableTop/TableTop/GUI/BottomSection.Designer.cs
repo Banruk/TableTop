@@ -31,6 +31,7 @@
             this.BottomContentPane = new System.Windows.Forms.Panel();
             this.BottomTab = new System.Windows.Forms.TabControl();
             this.chatTab = new System.Windows.Forms.TabPage();
+            this.ChatWindow = new System.Windows.Forms.RichTextBox();
             this.ChatSubmit = new System.Windows.Forms.Button();
             this.ChatInput = new System.Windows.Forms.TextBox();
             this.ChatTypeSelector = new System.Windows.Forms.ComboBox();
@@ -39,7 +40,6 @@
             this.GMTab = new System.Windows.Forms.TabPage();
             this.MapControlsButton = new System.Windows.Forms.Button();
             this.NPControlsButton = new System.Windows.Forms.Button();
-            this.ChatWindow = new System.Windows.Forms.RichTextBox();
             this.BottomContentPane.SuspendLayout();
             this.BottomTab.SuspendLayout();
             this.chatTab.SuspendLayout();
@@ -70,7 +70,7 @@
             // 
             // chatTab
             // 
-            this.chatTab.BackColor = System.Drawing.Color.Black;
+            this.chatTab.BackColor = System.Drawing.Color.Transparent;
             this.chatTab.Controls.Add(this.ChatWindow);
             this.chatTab.Controls.Add(this.ChatSubmit);
             this.chatTab.Controls.Add(this.ChatInput);
@@ -82,6 +82,15 @@
             this.chatTab.TabIndex = 0;
             this.chatTab.Text = "Chat Window";
             this.chatTab.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // ChatWindow
+            // 
+            this.ChatWindow.Location = new System.Drawing.Point(9, 7);
+            this.ChatWindow.Name = "ChatWindow";
+            this.ChatWindow.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.ChatWindow.Size = new System.Drawing.Size(1360, 171);
+            this.ChatWindow.TabIndex = 4;
+            this.ChatWindow.Text = "";
             // 
             // ChatSubmit
             // 
@@ -157,15 +166,6 @@
             this.NPControlsButton.TabIndex = 0;
             this.NPControlsButton.Text = "NPC Controls";
             this.NPControlsButton.UseVisualStyleBackColor = true;
-            // 
-            // ChatWindow
-            // 
-            this.ChatWindow.Location = new System.Drawing.Point(9, 7);
-            this.ChatWindow.Name = "ChatWindow";
-            this.ChatWindow.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.ChatWindow.Size = new System.Drawing.Size(1360, 171);
-            this.ChatWindow.TabIndex = 4;
-            this.ChatWindow.Text = "";
             // 
             // BottomSection
             // 

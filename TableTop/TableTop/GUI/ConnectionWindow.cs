@@ -83,7 +83,14 @@ namespace TableTop
                 }
                 else
                 {
-                    mainWindow.Perform_Login(connWindow.UserName.Text, connWindow.ServerIP.Text, connWindow.isGM.Checked);
+                    String gamemode;
+                    if(connWindow.isGM.Checked){
+                       gamemode = connWindow.ModeSelection.SelectedValue.ToString();
+                    }
+                    else{
+                        gamemode = null;
+                    }
+                    mainWindow.Perform_Login(connWindow.UserName.Text, connWindow.ServerIP.Text, connWindow.isGM.Checked, gamemode);
                 }
 
 

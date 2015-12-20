@@ -39,6 +39,7 @@
             this.PortraitPane.Name = "PortraitPane";
             this.PortraitPane.Size = new System.Drawing.Size(184, 824);
             this.PortraitPane.TabIndex = 0;
+            this.PortraitPane.WrapContents = false;
             // 
             // Portraits
             // 
@@ -55,7 +56,8 @@
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel PortraitPane;
+        protected System.Windows.Forms.FlowLayoutPanel PortraitPane;
+
 
     }
 }

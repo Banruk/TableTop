@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace TableTop.GUI.Portrait_Controls
 {
-    abstract class Base_Other_Players
+    abstract public class Base_Other_Players
     {
         public int client_id
         {

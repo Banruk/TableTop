@@ -29,14 +29,16 @@ namespace CharacterTableTop.GUI.Portrait_Controls.GameSpecificCharacterSheets
             Hide();
         }
 
-        override public void buildPortraitPane()
+        public Mistborn(CharacterSheet sheet)
         {
-            portrait_pane = new Panel();
-            portrait_pane.Width = 150;
-            portrait_pane.Height = 150;
-            portrait_pane.BackColor = Color.Blue;
-            portrait_pane.Margin = new Padding(18);
-            portrait_pane.Click += controller.portraitClick;
+            controller = new Mistborn_Handler(this);
+            character_sheet = new Mistborn_CharacterSheet();
+            initialize();
+            buildPortraitPane();
+            Visible = true;
+            Hide();
+
+            loadFromCharactersheet(sheet);
         }
 
         public class Mistborn_Handler : Character_Form.Character_Form_Controller

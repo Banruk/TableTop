@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using Character;
 using TableTop.GUI;
 using TableTopServer.WCF_Service;
+using TableTop.GUI.Portrait_Controls.PortraitExtensions;
+using TableTop.GUI.GameField;
 
 namespace TableTop
 {
@@ -20,19 +22,25 @@ namespace TableTop
         public BottomSection bottomPane;
         String UserName;
         CharacterSheet character = null;
+        GameField field = null;
 
-        public Boolean is_gm
+        public static Boolean is_gm
         {
             get;
             private set;
+        }
+        public static String gameMode
+        {
+            get;
+            set;
         }
 
         public MainGUI(IServer_WCF_Interface server, String UserName, Boolean is_gm)
         {
             InitializeComponent();
-            setUp(server);
             this.UserName = UserName;
-            this.is_gm = is_gm;
+            MainGUI.is_gm = is_gm;
+            setUp(server);
         }
 
         private void setUp(IServer_WCF_Interface server)
@@ -41,16 +49,27 @@ namespace TableTop
             FormBorderStyle = FormBorderStyle.None;
             Dock = DockStyle.Fill;
 
-            portraitPane = new Portraits(this); // todo: get is_gm
-            bottomPane = new BottomSection(this, server);
+            if (is_gm)
+            {
+                portraitPane = new GMPortraits(this);
+                field = new GameField(this, null);
+            }
+            else
+            {
+                portraitPane = new PlayerPortraits(this);
+                field = new GameField(this, null); // todo: get player
+            }
 
+            bottomPane = new BottomSection(this, server);
             controller = new MainGUI_Controller(this);
 
+            GameGrid.Controls.Add(field);
             ChatPane.Controls.Add(bottomPane);
             PortraitPane.Controls.Add(portraitPane);
 
             bottomPane.Show();
             portraitPane.Show();
+            field.Show();
         }
 
         public MainGUI_Controller getController()
@@ -80,7 +99,7 @@ namespace TableTop
             public String getCharacterName()
             {
                 if(maingui.character != null)
-                    return maingui.character.getCharacterName();
+                    return maingui.character.FirstName;
                 else
                     return null;
             }

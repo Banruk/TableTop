@@ -53,6 +53,7 @@
             // 
             // GameGrid
             // 
+            this.GameGrid.AutoScroll = true;
             this.GameGrid.BackColor = System.Drawing.Color.ForestGreen;
             this.GameGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GameGrid.Location = new System.Drawing.Point(0, 0);

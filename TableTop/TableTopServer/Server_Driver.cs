@@ -13,8 +13,14 @@
     public class Server_Driver
     {
         List<ClientConnection> clients;
+        public Client_WCF_Interface gm_connection = null;
         ServiceHost myHost = null;
         Server_WCF_Interface wcf_server;
+        public String gameMode
+        {
+            get;
+            set;
+        }
 
         /*****************************************************
          * 

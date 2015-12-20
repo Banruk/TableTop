@@ -48,8 +48,6 @@
             SuspendLayout();
             InitializeComponent();
 
-            DebugLogger.setDebugPath(System.IO.Path.GetDirectoryName(Application.ExecutablePath) + @"Debug/client_debug_log.txt"); 
-
             contentPane = new Panel();
             connectionForm = new ConnectionWindow(this);
             contentPane.Location = new System.Drawing.Point(0, 0);
@@ -74,24 +72,43 @@
         /// </summary>
         /// <param FirstName="IP">The IP of the server to connect to</param>
         /// <param FirstName="isGM">If the server is a GM or Player connection</param>
-        public void Perform_Login(String userName, String IP, Boolean isGM)
+        public void Perform_Login(String userName, String IP, Boolean isGM, String gameMode)
         {
             var myBinding = new NetTcpBinding();
             var myEndpoint = new EndpointAddress("net.tcp://" + IP + "/Design_Time_Addresses/ServiceLibrary/Comm/");
             var myChannel = new DuplexChannelFactory<IServer_WCF_Interface>(new WCF_Client(this), myBinding, myEndpoint);
 
-            server = myChannel.CreateChannel();
+            try
+            {
+                server = myChannel.CreateChannel();
 
+                client_id = server.performConnection(userName, isGM, ref gameMode);
+            }
+            catch (Exception e)
+            {
+                connectionForm.errorLbl.Text = "Exception occured: " + e.Message;
+                return;
+            }
+
+            if (client_id == -1)
+            {
+                connectionForm.errorLbl.Text = "No GM is present, cannot connect.";
+                return;
+            }
+
+            MainGUI.gameMode = gameMode;
             mainGUI = new MainGUI(server, userName, isGM);
 
             Controls.Remove(connectionForm);
             connectionForm.Dispose();
             connectionForm = null;
 
+            server.getCurrentlyConnectedPlayers(client_id);
+
             contentPane.Controls.Add(mainGUI);
             mainGUI.Show();
 
-            client_id = server.performConnection(userName, isGM);
+
         }
 
         public void closeWindow(object sender, EventArgs e)

@@ -6,45 +6,68 @@ using System.Threading.Tasks;
 using System.ServiceModel;
 using System.Runtime.Serialization;
 using System.Drawing;
+using System.Xml.Serialization;
+using Character.GameSpecificCharacterSheets.Mistborn;
 
 namespace Character
 {
     [DataContract]
+    [KnownType(typeof(Mistborn_CharacterSheet))]
     public class CharacterSheet
     {
         [DataMember]
-        Image portrait;
-        [DataMember]
-        Image sprite;
-        [DataMember]
-        String FirstName;
-        [DataMember]
-        String LastName;
-        [DataMember]
-        String Age;
-        [DataMember]
-        String Race;
-        [DataMember]
-        String gender;
-        [DataMember]
-        String Weight;
-        [DataMember]
-        String Height;
-
-
-        public void SetPortrait(Image new_portrait)
+        public byte[] portrait_bytes
         {
-            portrait = new_portrait;
+            get
+            {
+                ImageConverter converter = new ImageConverter();
+                return (byte[])converter.ConvertTo(portrait, typeof(byte[]));
+            }
+            set
+            {
+                ImageConverter converter = new ImageConverter();
+                portrait = (Image)converter.ConvertFrom(value);
+            }
         }
+        [XmlIgnore]
+        public Image portrait;
 
-        public Image GetPortrait()
+        [DataMember]
+        public byte[] sprite_bytes
         {
-            return portrait;
+            get
+            {
+                ImageConverter converter = new ImageConverter();
+                return (byte[])converter.ConvertTo(sprite, typeof(byte[]));
+            }
+            set
+            {
+                if (value != null && value.Count() > 1)
+                {
+                    ImageConverter converter = new ImageConverter();
+                    sprite = (Image)converter.ConvertFrom(value);
+                }
+            }
         }
+        [XmlIgnore]
+        public Image sprite;
 
-        public String getCharacterName()
-        {
-            return FirstName;
-        }
+        [DataMember]
+        public String FirstName;
+        [DataMember]
+        public String LastName;
+        [DataMember]
+        public String Age;
+        [DataMember]
+        public String Race;
+        [DataMember]
+        public String Gender;
+        [DataMember]
+        public String Weight;
+        [DataMember]
+        public String Height;
+        [DataMember]
+        public String Description;
+
     }
 }

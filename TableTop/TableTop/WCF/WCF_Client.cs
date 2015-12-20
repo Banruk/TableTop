@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Character;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -27,15 +28,15 @@ namespace TableTop.WCF
             gui.mainGUI.getController().getPortraits().addPortrait(client_id, null);
         }
 
-        public void loadLoggedInUsers(int client_id, byte[] portrait)
+        public void loadLoggedInUsers(int client_id, CharacterSheet sheet)
         {
             // Need to actually load portraits if they exist
-            gui.mainGUI.getController().getPortraits().addPortrait(client_id, portrait);
+            gui.mainGUI.getController().getPortraits().addPortrait(client_id, sheet); // the fuck???
         }
 
-        public void updateUserProfile(int client_id, byte[] portrait)
+        public void updateUserProfile(int client_id, CharacterSheet characterSheet)
         {
-            gui.mainGUI.getController().getPortraits().updatePortrait(client_id, portrait);
+            gui.mainGUI.getController().getPortraits().updateCharacter(client_id, characterSheet);
         }
 
         public void recieveChatInput(String chatType, String message)

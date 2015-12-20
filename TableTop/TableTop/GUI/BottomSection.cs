@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TableTop.Misc;
 using TableTopServer.WCF_Service;
 
 namespace TableTop.GUI
@@ -20,6 +22,12 @@ namespace TableTop.GUI
             InitializeComponent();
             TopLevel = false;
             setup(main, server);
+            ChatWindow.BackColor = Colors.ConvertColor(ConfigurationManager.AppSettings["chatWindowBackgroundColor"]);
+            chatTab.BackColor = Colors.ConvertColor(ConfigurationManager.AppSettings["backgroundColor"]);
+            UserControlsTab.BackColor = Colors.ConvertColor(ConfigurationManager.AppSettings["backgroundColor"]);
+            GMTab.BackColor = Colors.ConvertColor(ConfigurationManager.AppSettings["backgroundColor"]);
+            BackColor = Colors.ConvertColor(ConfigurationManager.AppSettings["backgroundColor"]);
+
         }
 
         private void setup(MainGUI main, IServer_WCF_Interface server)
@@ -31,6 +39,11 @@ namespace TableTop.GUI
 
             ChatSubmit.Click += handler.chatEnter;
             ChatInput.KeyUp += handler.chatEnter;
+
+            if (!MainGUI.is_gm)
+            {
+                BottomTab.Controls.Remove(GMTab);
+            }
         }
 
         /// <summary>
@@ -80,23 +93,23 @@ namespace TableTop.GUI
                 {
                     if (chatType.Equals("In Game") && main.controller.getUserName() != null)
                     {
-                        page.ChatWindow.SelectionColor = Color.Red;
+                        page.ChatWindow.SelectionColor = Colors.ConvertColor(ConfigurationManager.AppSettings["inGameChatMessage"]);
                     }
                     else if (chatType.Equals("Out of Game"))
                     {
-                        page.ChatWindow.SelectionColor = Color.Blue;
+                        page.ChatWindow.SelectionColor = Colors.ConvertColor(ConfigurationManager.AppSettings["outOfGameCharMessage"]);
                     }
                     else if (chatType.Equals("Action Description") && main.controller.getUserName() != null)
                     {
-                        page.ChatWindow.SelectionColor = Color.Green;
+                        page.ChatWindow.SelectionColor = Colors.ConvertColor(ConfigurationManager.AppSettings["actionChatMessage"]);
                     }
                     else if (chatType.Equals("System"))
                     {
-                        page.ChatWindow.SelectionColor = Color.Purple;
+                        page.ChatWindow.SelectionColor = Colors.ConvertColor(ConfigurationManager.AppSettings["systemChatMessage"]);
                     }
                     else
                     {
-                        page.ChatWindow.SelectionColor = Color.Black;
+                        page.ChatWindow.SelectionColor = Colors.ConvertColor(ConfigurationManager.AppSettings["errorChatMessage"]);
                         page.ChatWindow.AppendText("No Character Selected, can't use this mode until a character is selected.");
                         return;
                     }

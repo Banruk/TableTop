@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ServiceModel;
 using System.Drawing;
+using Character;
 
 namespace TableTopServer.WCF_Service
 {
@@ -14,13 +15,16 @@ namespace TableTopServer.WCF_Service
     public interface IServer_WCF_Interface
     {
         [OperationContract]
-        int performConnection(String userName, Boolean isGM);
+        int performConnection(String userName, Boolean isGM, ref String gameMode);
+
+        [OperationContract]
+        void getCurrentlyConnectedPlayers(int client_id);
 
         [OperationContract]
         void recieveChatInput(String chatType, String message);
 
         [OperationContract]
-        void updateUserProfile(int client_id, byte[] portrait);
+        void updateUserProfile(int client_id, CharacterSheet characterSheet);
 
         [OperationContract]
         void connectionClose(int client_id);
@@ -33,10 +37,10 @@ namespace TableTopServer.WCF_Service
         void newUserLoggedIn(int client_id, String user_name);
 
         [OperationContract]
-        void loadLoggedInUsers(int client_id, byte[] portrait);
+        void loadLoggedInUsers(int client_id, CharacterSheet sheet);
 
         [OperationContract]
-        void updateUserProfile(int client_id, byte[] portrait);
+        void updateUserProfile(int client_id, CharacterSheet characterSheet);
 
         [OperationContract]
         void recieveChatInput(String chatType, String message);

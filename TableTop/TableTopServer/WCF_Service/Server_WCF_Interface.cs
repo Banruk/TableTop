@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.ServiceModel;
 using System.Threading;
 using System.Drawing;
+using Character;
+using Shared_Resources;
 
 namespace TableTopServer.WCF_Service
 {
@@ -28,19 +30,31 @@ namespace TableTopServer.WCF_Service
         /// <param FirstName="userName"></param>
         /// <param FirstName="isGM"></param>
         /// <returns></returns>
-        public int performConnection(String userName, Boolean isGM)
+        public int performConnection(String userName, Boolean isGM, ref String gameMode)
         {
             ClientConnection new_client;
             connectionMutex.WaitOne();
             try
             {
+                if (isGM)
+                {
+                    server.gm_connection = Callback;
+                    server.gameMode = gameMode;
+                    return 0;
+                }
+
+                if (server.gm_connection == null)
+                {
+                    return -1;
+                }
+
                 new_client = server.AddClient(Callback);
+                server.gm_connection.newUserLoggedIn(new_client.client_id, userName);
                 foreach (ClientConnection client in server.getClientList())
                 {
                     if (client.client_id != new_client.client_id)
                     {
                         client.getConnection().newUserLoggedIn(new_client.client_id, userName);
-                        new_client.getConnection().loadLoggedInUsers(client.client_id, client.portrait);
                     }
                 }
             }
@@ -49,8 +63,22 @@ namespace TableTopServer.WCF_Service
                 connectionMutex.ReleaseMutex();
             }
 
+            gameMode = server.gameMode;
+
             return new_client.client_id;
         } // End performConnection
+
+        public void getCurrentlyConnectedPlayers(int client_id)
+        {
+            foreach (ClientConnection client in server.getClientList())
+            {
+                if (client.client_id != client_id)
+                {
+                    Callback.loadLoggedInUsers(client.client_id, client.characterSheet);
+
+                }
+            }
+        }
 
         /// <summary>
         /// Used to send chat messages to all connected clients.
@@ -66,22 +94,18 @@ namespace TableTopServer.WCF_Service
             }
         } // End recieveChatInput
 
-        /// <summary>
-        /// Method used to update a client's user portrait to all other clients
-        /// </summary>
-        /// <param name="client_id">The ID of the client updating their portrait</param>
-        /// <param name="portrait">The portrait to update to</param>
-        public void updateUserProfile(int client_id, byte[] portrait)
+        public void updateUserProfile(int client_id, CharacterSheet characterSheet)
         {
+            server.gm_connection.updateUserProfile(client_id, characterSheet);
             foreach (ClientConnection client in server.getClientList())
             {
                 if (client.client_id != client_id)
                 {
-                    client.getConnection().updateUserProfile(client_id, portrait);
+                    client.getConnection().updateUserProfile(client_id, characterSheet); // todo: fix to pass character sheet
                 }
                 else
                 {
-                    client.portrait = portrait;
+                    client.characterSheet = characterSheet;
                 }
             }
         } // End updateUserProfile
@@ -96,6 +120,18 @@ namespace TableTopServer.WCF_Service
             try
             {
                 ClientConnection to_remove = null;
+
+                if (server.gm_connection != null)
+                {
+                    server.gm_connection.clientDisconnected(client_number);
+                }
+
+                if (client_number == 0)
+                {
+                    server.gm_connection = null;
+                    return;
+                }
+
                 foreach (ClientConnection client in server.getClientList())
                 {
                     if (client.client_id == client_number)
