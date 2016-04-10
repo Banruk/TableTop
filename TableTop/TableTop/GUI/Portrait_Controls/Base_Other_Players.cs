@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace TableTop.GUI.Portrait_Controls
+﻿namespace TableTop.GUI.Portrait_Controls
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Drawing;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Windows.Forms;
+
     abstract public class Base_Other_Players
     {
         public int client_id
@@ -15,7 +15,6 @@ namespace TableTop.GUI.Portrait_Controls
             get;
             private set;
         }
-        Image portrait;
 
         public Base_Other_Players(int client_id)
         {
@@ -23,5 +22,8 @@ namespace TableTop.GUI.Portrait_Controls
         }
 
         abstract public Panel getPortrait();
+
+        abstract public void updatePortrait(Image new_portrait);
+
     }
 }

@@ -21,21 +21,22 @@ namespace TableTop.WCF
             gui = intest;
         }
 
-        public void newUserLoggedIn(int client_id, String user_name)
+        public void newUserLoggedIn(int client_id, String user_name) // todo: expect a CharacterSheet
         {
-            // Needs a lot of work still
+            // todo: Fix this later
             gui.mainGUI.bottomPane.getController().addToChat("System", "User " + user_name + " has logged in.");
             gui.mainGUI.getController().getPortraits().addPortrait(client_id, null);
         }
 
         public void loadLoggedInUsers(int client_id, CharacterSheet sheet)
         {
-            // Need to actually load portraits if they exist
-            gui.mainGUI.getController().getPortraits().addPortrait(client_id, sheet); // the fuck???
+            // todo: Fix this later
+            gui.mainGUI.getController().getPortraits().addPortrait(client_id, sheet); 
         }
 
         public void updateUserProfile(int client_id, CharacterSheet characterSheet)
         {
+            // todo: Fix this later
             gui.mainGUI.getController().getPortraits().updateCharacter(client_id, characterSheet);
         }
 
@@ -46,6 +47,7 @@ namespace TableTop.WCF
 
         public void clientDisconnected(int client_id)
         {
+            // todo: Fix this later
             gui.mainGUI.getController().getPortraits().removePortrait(client_id);
         }
     }
