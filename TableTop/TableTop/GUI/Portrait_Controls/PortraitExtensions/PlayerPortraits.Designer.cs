@@ -1,4 +1,4 @@
-﻿namespace TableTop.GUI.Portrait_Controls.PortraitExtensions
+﻿namespace TableTop.DONOTUSE
 {
     partial class PlayerPortraits
     {

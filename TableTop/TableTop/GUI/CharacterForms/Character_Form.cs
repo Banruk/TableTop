@@ -17,6 +17,10 @@
     /// </summary>
     public partial class Character_Form : Form, Character_Form_Interface
     {
+        /*
+         * Todo: consider pulling out the base details section into it's own class so it can be reused.
+         */
+
         /// <summary>
         /// A display of this character's portrait.  This pane serves as the button for making the character details window visible on the main GUI
         /// </summary>

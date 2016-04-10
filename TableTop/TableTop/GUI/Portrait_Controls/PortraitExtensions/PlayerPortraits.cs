@@ -8,12 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TableTop.GUI;
 using TableTop.GUI.CharacterForms;
 
-namespace TableTop.GUI.Portrait_Controls.PortraitExtensions
+namespace TableTop.DONOTUSE
 {
-    public partial class PlayerPortraits : Portraits
+    public partial class PlayerPortraits : Portraits_GUI
     {
+        /*
         protected List<Base_Other_Players> portraits;
         protected Character_Form_Driver character_driver; 
 
@@ -100,5 +102,6 @@ namespace TableTop.GUI.Portrait_Controls.PortraitExtensions
                 }
             } // End removePortrait
         }
+        */
     }
 }

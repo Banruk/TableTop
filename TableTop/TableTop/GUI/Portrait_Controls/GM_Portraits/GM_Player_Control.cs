@@ -1,6 +1,7 @@
 ﻿using Character;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,7 +31,17 @@ namespace TableTop.GUI.Portrait_Controls
 
         override public Panel getPortrait()
         {
-            return character.getPortraitPane();
+            return character.getPortraitPane(); // todo: FIX THIS
+        }
+
+        override public void updatePortrait(Image new_portrait)
+        {
+            // todo: FIX THIS
+            getPortrait().BeginInvoke((MethodInvoker)delegate
+            {
+                getPortrait().BackColor = Color.Transparent;
+                getPortrait().BackgroundImage = new_portrait;
+            });
         }
     }
 }

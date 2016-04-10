@@ -16,17 +16,12 @@ using TableTopServer.WCF_Service;
 
 namespace TableTop.GUI
 {
-    public partial class Portraits : Form
+    public partial class Portraits_GUI : Form
     {
-        protected Portraits_Controller controller;
-        protected MainGUI main;
 
-        public Portraits() { InitializeComponent(); }
-
-        public Portraits(MainGUI mainGUI)
+        public Portraits_GUI()
         {
             InitializeComponent();
-            main = mainGUI;
             BackColor = Colors.ConvertColor(ConfigurationManager.AppSettings["backgroundColor"]);
 
             TopLevel = false;
@@ -34,20 +29,26 @@ namespace TableTop.GUI
             Dock = DockStyle.Fill;
 
             PortraitPane.AutoScroll = true;
+            Show();
         }
 
-        public Portraits_Controller getController()
+        public void addPortrait(Panel new_portrait)
         {
-            return controller;
+            this.BeginInvoke((MethodInvoker)delegate
+            {
+                PortraitPane.Controls.Add(new_portrait);
+                new_portrait.Show();
+                new_portrait.BringToFront();
+            });
         }
 
-        abstract public class Portraits_Controller
+        public void removePortrait(Panel dead_portrait)
         {
-            abstract public void addPortrait(int client_id, CharacterSheet sheet);
-
-            abstract public void updateCharacter(int client_id, CharacterSheet updateCharacter);
-
-            abstract public void removePortrait(int client_id);
-        } // End Portraits_Controller
-    } // End Portraits
+            this.BeginInvoke((MethodInvoker)delegate
+            {
+                PortraitPane.Controls.Remove(dead_portrait);
+                dead_portrait.Dispose();
+            });
+        }
+    } // End Portraits_GUI
 }

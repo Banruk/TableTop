@@ -15,7 +15,6 @@ namespace TableTop.GUI.Portrait_Controls
             get;
             private set;
         }
-        Image portrait;
 
         public Base_Other_Players(int client_id)
         {
@@ -23,5 +22,8 @@ namespace TableTop.GUI.Portrait_Controls
         }
 
         abstract public Panel getPortrait();
+
+        abstract public void updatePortrait(Image new_portrait);
+
     }
 }

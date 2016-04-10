@@ -8,11 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TableTop.GUI;
 
-namespace TableTop.GUI.Portrait_Controls.PortraitExtensions
+namespace TableTop.DONOTUSE
 {
-    public partial class GMPortraits : Portraits
+    public partial class GMPortraits : Portraits_GUI
     {
+        /*
         List<GM_Player_Control> players;
 
         public GMPortraits() : base() { InitializeComponent(); }
@@ -79,5 +81,6 @@ namespace TableTop.GUI.Portrait_Controls.PortraitExtensions
                 }
             }
         }
+         */
     }
 }

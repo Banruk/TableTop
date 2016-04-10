@@ -7,17 +7,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TableTop.Misc;
 
-namespace TableTop.GUI.Portrait_Controls
+namespace TableTop.GUI.Portrait_Controls.Player_Portraits
 {
     public class Other_Player_Portraits : Base_Other_Players
     {
-        public int client_id
-        {
-            get;
-            private set;
-        }
         Panel otherPanel;
-        Image portrait;
 
         public Other_Player_Portraits(int client_id)
             : base(client_id)
@@ -34,6 +28,15 @@ namespace TableTop.GUI.Portrait_Controls
         override public Panel getPortrait()
         {
             return otherPanel;
+        }
+
+        override public void updatePortrait(Image new_portrait)
+        {
+            getPortrait().BeginInvoke((MethodInvoker)delegate
+            {
+                getPortrait().BackColor = Color.Transparent;
+                getPortrait().BackgroundImage = new_portrait;
+            });
         }
     }
 }
