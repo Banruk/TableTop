@@ -1,21 +1,21 @@
-﻿using Character;
-using Shared_Resources;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using TableTop.GUI.Portrait_Controls;
-using TableTop.Misc;
-using TableTopServer.WCF_Service;
-
-namespace TableTop.GUI
+﻿namespace TableTop.GUI
 {
+    using Character;
+    using Shared_Resources;
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Configuration;
+    using System.Data;
+    using System.Drawing;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Windows.Forms;
+    using TableTop.GUI.Portrait_Controls;
+    using TableTop.Misc;
+    using TableTopServer.WCF_Service;
+
     public partial class Portraits_GUI : Form
     {
 

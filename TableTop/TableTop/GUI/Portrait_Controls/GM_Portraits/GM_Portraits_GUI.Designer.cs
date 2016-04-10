@@ -1,6 +1,6 @@
-﻿namespace TableTop.DONOTUSE
+﻿namespace TableTop.GUI.Portrait_Controls.GM_Portraits
 {
-    partial class PlayerPortraits
+    partial class GM_Portraits_GUI
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "PlayerPortraits";
+            this.Text = "GM_Portraits_GUI";
         }
 
         #endregion

@@ -78,6 +78,13 @@
     </Compile>
     <Compile Include="GUI\GameField\Tiles\BaseTile.cs" />
     <Compile Include="GUI\GameField\Tiles\TileController.cs" />
+    <Compile Include="GUI\Portrait_Controls\GM_Portraits\GM_Portraits_Controller.cs" />
+    <Compile Include="GUI\Portrait_Controls\GM_Portraits\GM_Portraits_GUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Portrait_Controls\GM_Portraits\GM_Portraits_GUI.Designer.cs">
+      <DependentUpon>GM_Portraits_GUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Portrait_Controls\Portraits_GUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,18 +114,6 @@
     </Compile>
     <Compile Include="GUI\Portrait_Controls\Player_Portraits\PlayerPortrait_GUI.Designer.cs">
       <DependentUpon>PlayerPortrait_GUI.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\Portrait_Controls\PortraitExtensions\GMPortraits.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\Portrait_Controls\PortraitExtensions\GMPortraits.Designer.cs">
-      <DependentUpon>GMPortraits.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\Portrait_Controls\PortraitExtensions\PlayerPortraits.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\Portrait_Controls\PortraitExtensions\PlayerPortraits.Designer.cs">
-      <DependentUpon>PlayerPortraits.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Portrait_Controls\Portraits_Controller.cs" />
     <Compile Include="GUI\Portrait_Controls\Portraits_Driver.cs" />

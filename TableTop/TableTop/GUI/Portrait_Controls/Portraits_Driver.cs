@@ -1,16 +1,17 @@
-﻿using Character;
-using Shared_Resources;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using TableTop.GUI.CharacterForms;
-using TableTop.GUI.Portrait_Controls.Player_Portraits;
-
-namespace TableTop.GUI.Portrait_Controls
+﻿namespace TableTop.GUI.Portrait_Controls
 {
+    using Character;
+    using Shared_Resources;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Windows.Forms;
+    using TableTop.GUI.CharacterForms;
+    using TableTop.GUI.Portrait_Controls.GM_Portraits;
+    using TableTop.GUI.Portrait_Controls.Player_Portraits;
+
     public class Portraits_Driver
     {
         Portraits_GUI gui;
@@ -37,8 +38,8 @@ namespace TableTop.GUI.Portrait_Controls
             if (is_gm)
             {
                 // todo
-                gui = new PlayerPortrait_GUI();
-                controller = new PlayerPortrait_Controller();
+                gui = new GM_Portraits_GUI();
+                controller = new GM_Portraits_Controller();
             }
             else
             {
@@ -55,8 +56,6 @@ namespace TableTop.GUI.Portrait_Controls
             removePortrait += controller.removePortrait;
             addPortrait += controller.addPortrait;
             updateCharacter += controller.updateCharacter;
-
-            //controller.FinalizeInitialize();
 
             gui.Show();
         }

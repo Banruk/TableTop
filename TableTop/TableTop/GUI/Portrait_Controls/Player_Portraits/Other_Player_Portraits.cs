@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using TableTop.Misc;
-
-namespace TableTop.GUI.Portrait_Controls.Player_Portraits
+﻿namespace TableTop.GUI.Portrait_Controls.Player_Portraits
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Drawing;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Windows.Forms;
+    using TableTop.Misc;
+
     public class Other_Player_Portraits : Base_Other_Players
     {
         Panel otherPanel;

@@ -18,6 +18,5 @@
         abstract public void updateCharacter(int client_id, CharacterSheet updateCharacter);
 
         abstract public void removePortrait(int client_id);
-
     }
 }
