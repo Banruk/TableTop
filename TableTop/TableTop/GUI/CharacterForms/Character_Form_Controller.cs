@@ -22,7 +22,8 @@
        /// <summary>
         /// low level reference of character_sheet, should not be a stand alone object
        /// </summary>
-        protected CharacterSheet character_sheet; 
+        protected CharacterSheet character_sheet;
+        public takes_nothing showLoadScreen;
 
        /// <summary>
        /// Initialize the Controller
@@ -103,7 +104,7 @@
        /// <param name="e">n/a</param>
         public void loadCharacter(object sender, EventArgs e)
         {
-            gui.ShowCharacterSelection();
+            showLoadScreen();
         } // End loadCharacter
 
        /// <summary>

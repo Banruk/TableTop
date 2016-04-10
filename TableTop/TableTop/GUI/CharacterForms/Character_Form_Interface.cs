@@ -17,7 +17,5 @@ namespace TableTop.GUI.CharacterForms
 
         void Show();
         void Hide();
-
-        void ShowCharacterSelection();
     }
 }

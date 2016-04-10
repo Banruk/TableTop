@@ -22,6 +22,10 @@
         /// Low level reference to the GUI controller
         /// </summary>
         private Character_Form_Controller controller;
+        /// <summary>
+        /// 
+        /// </summary>
+        private CharacterSelection select;
 
         /// <summary>
         /// Initialization
@@ -89,6 +93,15 @@
             }
 
             character_form.initialize(controller);
+
+            select = new CharacterSelection();
+
+            controller.showLoadScreen += select.Show;
+            select.load_xml += controller.load_XML;
+
+            character_form.Controls.Add(select);
+            select.Hide();
+
         }
     }
 }
