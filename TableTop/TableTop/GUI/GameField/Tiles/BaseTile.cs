@@ -33,7 +33,8 @@ namespace TableTop.GUI.GameField.Tiles
             set
             {
                 ImageConverter converter = new ImageConverter();
-                background_image = (Image)converter.ConvertFrom(value);
+                if(!String.IsNullOrEmpty(value.ToString()) && value.Count() > 1)
+                    background_image = (Image)converter.ConvertFrom(value);
             }
         }
 
@@ -47,6 +48,7 @@ namespace TableTop.GUI.GameField.Tiles
         public BaseTile()
         {
             tile = new Tile(this);
+            tile.BackColor = Color.Transparent;
             enterable_bottom = true;
             enterable_left = true;
             enterable_right = true;
@@ -95,6 +97,10 @@ namespace TableTop.GUI.GameField.Tiles
                 if (gui.background_image != null)
                 {
                     BackgroundImage = gui.background_image;
+                }
+                else
+                {
+                    BackColor = Color.SkyBlue;
                 }
                 //e.Graphics.DrawImage(gui.image, new Point(0, 0));
                 using (SolidBrush brush = new SolidBrush(Color.Transparent))

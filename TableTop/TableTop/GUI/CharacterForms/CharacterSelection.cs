@@ -1,4 +1,4 @@
-﻿using CharacterTableTop.GUI.Portrait_Controls;
+﻿using Shared_Resources;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,11 +10,12 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TableTop.GUI.Portrait_Controls
+namespace TableTop.GUI.CharacterForms
 {
     public partial class CharacterSelection : Form
     {
         Character_Form character_form;
+        public takes_string load_xml;
 
         public CharacterSelection(Character_Form form)
         {
@@ -53,7 +54,7 @@ namespace TableTop.GUI.Portrait_Controls
         protected void LoadButton_Click(object sender, EventArgs e)
         {
             String selected = ((MyListItem)CharacterSelectionBox.SelectedItem).Tag.ToString();
-            character_form.controller.loadXML(selected);
+            load_xml(selected);
             Hide();
         }
 

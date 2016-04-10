@@ -15,10 +15,10 @@ namespace TableTop.GUI.GameField
 {
     public partial class GameField : Form
     {
-        //BaseTile [][] tiles;
         TileController tiles;
         MainGUI main;
         PlayerController player;
+
 
         public GameField(MainGUI main, PlayerController player)
         {
@@ -31,6 +31,9 @@ namespace TableTop.GUI.GameField
             AutoScroll = true;
             SuspendLayout();
 
+            // MapPanel
+
+            /*
             int columns = 50;
             int rows = 50;
             int squareSize = 100;
@@ -122,9 +125,9 @@ namespace TableTop.GUI.GameField
 
             Controls.Add(layout);
             layout.Show();
+             * */
             ResumeLayout();
 
-            Serialization.xml_serialize(tiles, typeof(TileController), @"C:\Users\Outsider\Documents\GitHub\TableTop\TableTop\TableTopServer\bin\Debug\Maps\my_map.xml");
         }
     }
 }

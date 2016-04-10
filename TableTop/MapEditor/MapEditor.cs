@@ -16,7 +16,7 @@ namespace MapEditor
     public partial class MapEditor : Form
     {
         EditController tileController;
-        TableLayoutPanel layout;
+        TableLayoutPanel [] layout;
         TileEditor tileEditor;
 
         public MapEditor()
@@ -57,45 +57,64 @@ namespace MapEditor
 
         }
 
-        public void setUpLayout(int X, int Y)
+        public void setUpLayout(int X, int Y, int Z)
         {
-            if (layout != null)
+            mapTabPanel.SuspendLayout();
+
+            if (mapTabPanel.TabPages.Count > 0)
             {
-                Controls.Remove(layout);
-                layout.Dispose();
-                layout = null;
-            }
-
-            layout = new TableLayoutPanel();
-            layout.RowCount = Y;
-            layout.ColumnCount = X;
-
-            layout.Width = 100 * X;
-            layout.Height = 100 * Y;
-
-
-            for (int i = 0; i < Y; i++)
-                layout.RowStyles.Add(new RowStyle(SizeType.Absolute, 100));
-
-            for (int i = 0; i < X; i++)
-                layout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 100));
-
-            for (int i = 0; i < Y; ++i) //y
-            {
-                for (int j = 0; j < X; ++j) //x
+                for (int i = mapTabPanel.Controls.Count-1; i >= 0; i--)
                 {
-                    layout.Controls.Add(tileController.tiles.tiles[i][j].getTile());
+                    mapTabPanel.Controls.RemoveAt(i);
                 }
             }
 
-            mapScreen.Controls.Add(layout);
-            layout.Show();
+            layout = new TableLayoutPanel[Z];
+
+            for (int k = 0; k < Z; k++)
+            {
+                layout[k] = new TableLayoutPanel();
+                layout[k].SuspendLayout();
+                layout[k].RowCount = Y;
+                layout[k].ColumnCount = X;
+
+                layout[k].Width = 100 * X;
+                layout[k].Height = 100 * Y;
+
+                for (int i = 0; i < Y; i++)
+                    layout[k].RowStyles.Add(new RowStyle(SizeType.Absolute, 100));
+
+                for (int i = 0; i < X; i++)
+                    layout[k].ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 100));
+
+                for (int i = 0; i < Y; ++i) //y
+                {
+                    for (int j = 0; j < X; ++j) //x
+                    {
+                        layout[k].Controls.Add(tileController.tiles.tiles[k][i][j].getTile());
+                    }
+                }
+
+                layout[k].Show();
+                layout[k].ResumeLayout();
+
+                TabPage tempPage = new TabPage();
+                tempPage.SuspendLayout();
+                tempPage.Text = k.ToString();
+                tempPage.Controls.Add(layout[k]);
+                tempPage.Show();
+                tempPage.ResumeLayout();
+
+                mapTabPanel.TabPages.Add(tempPage);
+            }
+            mapTabPanel.ResumeLayout();
         } // End setUpLayout
 
         public void createMapButton_click(object sender, EventArgs e)
         {
             int X;
             int Y;
+            int Z;
 
             if (Int32.TryParse(sizeXInput.Text.ToString(), out X))
             {
@@ -117,9 +136,19 @@ namespace MapEditor
                 return;
             }
 
-            tileController.newMap(X, Y);
+            if (Int32.TryParse(sizeZInput.Text.ToString(), out Z))
+            {
+                sizeYInput.BackColor = Color.White;
+            }
+            else
+            {
+                sizeYInput.BackColor = Color.Orange;
+                return;
+            }
 
-            setUpLayout(X, Y);
+            tileController.newMap(X, Y, Z);
+
+            setUpLayout(X, Y, Z);
 
         } // End createMapButton_click
 
@@ -155,7 +184,7 @@ namespace MapEditor
 
                 tileController.setEditor();
 
-                setUpLayout(tileController.tiles.X, tileController.tiles.Y);
+                setUpLayout(tileController.tiles.X, tileController.tiles.Y, tileController.tiles.Z);
             }
 
         }

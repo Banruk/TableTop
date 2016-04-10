@@ -42,8 +42,8 @@ namespace TableTop.GUI.Portrait_Controls.PortraitExtensions
                     portrait.players.Add(new_player);
                     portrait.PortraitPane.Controls.Add(new_player.getPortrait());
                     new_player.getPortrait().Show();
-                    portrait.main.Controls.Add(new_player.character);
-                    new_player.character.Hide();
+                    portrait.main.Controls.Add(new_player.character.getPortraitPane());
+                    new_player.character.getPortraitPane().Hide();
                 });
             }
 

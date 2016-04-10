@@ -39,21 +39,23 @@
             this.label2 = new System.Windows.Forms.Label();
             this.sizeXInput = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.sizeZInput = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.BackgroundPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.mapScreen = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.selectedTile = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.rotateRight = new System.Windows.Forms.Button();
+            this.rotateLeft = new System.Windows.Forms.Button();
             this.enterableTop = new System.Windows.Forms.CheckBox();
             this.enterableBottom = new System.Windows.Forms.CheckBox();
             this.enterableLeft = new System.Windows.Forms.CheckBox();
             this.enterableRight = new System.Windows.Forms.CheckBox();
             this.canGoUp = new System.Windows.Forms.CheckBox();
             this.canGoDown = new System.Windows.Forms.CheckBox();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.rotateRight = new System.Windows.Forms.Button();
-            this.rotateLeft = new System.Windows.Forms.Button();
-            this.selectedTile = new System.Windows.Forms.Panel();
+            this.mapTabPanel = new System.Windows.Forms.TabControl();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -123,9 +125,9 @@
             // 
             // createMapButton
             // 
-            this.createMapButton.Location = new System.Drawing.Point(7, 72);
+            this.createMapButton.Location = new System.Drawing.Point(7, 94);
             this.createMapButton.Name = "createMapButton";
-            this.createMapButton.Size = new System.Drawing.Size(197, 23);
+            this.createMapButton.Size = new System.Drawing.Size(200, 23);
             this.createMapButton.TabIndex = 1;
             this.createMapButton.Text = "Initialize Map";
             this.createMapButton.UseVisualStyleBackColor = true;
@@ -139,18 +141,21 @@
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.sizeXInput, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.sizeZInput, 1, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(7, 7);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(200, 58);
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(200, 81);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // sizeYInput
             // 
             this.sizeYInput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sizeYInput.Location = new System.Drawing.Point(40, 32);
+            this.sizeYInput.Location = new System.Drawing.Point(40, 30);
             this.sizeYInput.Name = "sizeYInput";
             this.sizeYInput.Size = new System.Drawing.Size(157, 20);
             this.sizeYInput.TabIndex = 2;
@@ -159,7 +164,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 37);
+            this.label2.Location = new System.Drawing.Point(3, 34);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(14, 13);
             this.label2.TabIndex = 2;
@@ -177,11 +182,29 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 8);
+            this.label1.Location = new System.Drawing.Point(3, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(14, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "X";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 61);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(14, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Z";
+            // 
+            // sizeZInput
+            // 
+            this.sizeZInput.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sizeZInput.Location = new System.Drawing.Point(40, 57);
+            this.sizeZInput.Name = "sizeZInput";
+            this.sizeZInput.Size = new System.Drawing.Size(157, 20);
+            this.sizeZInput.TabIndex = 4;
             // 
             // tabPage2
             // 
@@ -202,14 +225,6 @@
             this.BackgroundPanel.Size = new System.Drawing.Size(1545, 131);
             this.BackgroundPanel.TabIndex = 0;
             // 
-            // mapScreen
-            // 
-            this.mapScreen.AutoScroll = true;
-            this.mapScreen.Location = new System.Drawing.Point(13, 12);
-            this.mapScreen.Name = "mapScreen";
-            this.mapScreen.Size = new System.Drawing.Size(1349, 669);
-            this.mapScreen.TabIndex = 1;
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.selectedTile);
@@ -218,6 +233,13 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 668);
             this.panel1.TabIndex = 2;
+            // 
+            // selectedTile
+            // 
+            this.selectedTile.Location = new System.Drawing.Point(48, 3);
+            this.selectedTile.Name = "selectedTile";
+            this.selectedTile.Size = new System.Drawing.Size(100, 100);
+            this.selectedTile.TabIndex = 1;
             // 
             // flowLayoutPanel1
             // 
@@ -233,6 +255,40 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(193, 208);
             this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.rotateRight, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.rotateLeft, 1, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(190, 28);
+            this.tableLayoutPanel3.TabIndex = 6;
+            // 
+            // rotateRight
+            // 
+            this.rotateRight.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rotateRight.Location = new System.Drawing.Point(3, 3);
+            this.rotateRight.Name = "rotateRight";
+            this.rotateRight.Size = new System.Drawing.Size(89, 22);
+            this.rotateRight.TabIndex = 0;
+            this.rotateRight.Text = "R 90";
+            this.rotateRight.UseVisualStyleBackColor = true;
+            // 
+            // rotateLeft
+            // 
+            this.rotateLeft.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rotateLeft.Location = new System.Drawing.Point(98, 3);
+            this.rotateLeft.Name = "rotateLeft";
+            this.rotateLeft.Size = new System.Drawing.Size(89, 22);
+            this.rotateLeft.TabIndex = 1;
+            this.rotateLeft.Text = "L 90";
+            this.rotateLeft.UseVisualStyleBackColor = true;
             // 
             // enterableTop
             // 
@@ -294,54 +350,21 @@
             this.canGoDown.Text = "Can Go Down";
             this.canGoDown.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel3
+            // mapTabPanel
             // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.rotateRight, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.rotateLeft, 1, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(190, 28);
-            this.tableLayoutPanel3.TabIndex = 6;
-            // 
-            // rotateRight
-            // 
-            this.rotateRight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rotateRight.Location = new System.Drawing.Point(3, 3);
-            this.rotateRight.Name = "rotateRight";
-            this.rotateRight.Size = new System.Drawing.Size(89, 22);
-            this.rotateRight.TabIndex = 0;
-            this.rotateRight.Text = "R 90";
-            this.rotateRight.UseVisualStyleBackColor = true;
-            // 
-            // rotateLeft
-            // 
-            this.rotateLeft.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rotateLeft.Location = new System.Drawing.Point(98, 3);
-            this.rotateLeft.Name = "rotateLeft";
-            this.rotateLeft.Size = new System.Drawing.Size(89, 22);
-            this.rotateLeft.TabIndex = 1;
-            this.rotateLeft.Text = "L 90";
-            this.rotateLeft.UseVisualStyleBackColor = true;
-            // 
-            // selectedTile
-            // 
-            this.selectedTile.Location = new System.Drawing.Point(48, 3);
-            this.selectedTile.Name = "selectedTile";
-            this.selectedTile.Size = new System.Drawing.Size(100, 100);
-            this.selectedTile.TabIndex = 1;
+            this.mapTabPanel.Location = new System.Drawing.Point(17, 13);
+            this.mapTabPanel.Name = "mapTabPanel";
+            this.mapTabPanel.SelectedIndex = 0;
+            this.mapTabPanel.Size = new System.Drawing.Size(1345, 668);
+            this.mapTabPanel.TabIndex = 3;
             // 
             // MapEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1584, 862);
+            this.Controls.Add(this.mapTabPanel);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.mapScreen);
             this.Controls.Add(this.tabControl1);
             this.Name = "MapEditor";
             this.Text = "Form1";
@@ -373,7 +396,6 @@
         private System.Windows.Forms.TextBox sizeXInput;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Panel mapScreen;
         private System.Windows.Forms.FlowLayoutPanel BackgroundPanel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
@@ -387,6 +409,9 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button rotateRight;
         private System.Windows.Forms.Button rotateLeft;
+        private System.Windows.Forms.TabControl mapTabPanel;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox sizeZInput;
     }
 }
 

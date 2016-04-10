@@ -53,6 +53,17 @@
     <Compile Include="GUI\BottomSection.Designer.cs">
       <DependentUpon>BottomSection.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\CharacterForms\Character_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\CharacterForms\Character_Form.Designer.cs">
+      <DependentUpon>Character_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\CharacterForms\Character_Form_Controller.cs" />
+    <Compile Include="GUI\CharacterForms\Character_Form_Controller_Interface.cs" />
+    <Compile Include="GUI\CharacterForms\Character_Form_Driver.cs" />
+    <Compile Include="GUI\CharacterForms\Character_Form_Interface.cs" />
+    <Compile Include="GUI\CharacterForms\Mistborn\Mistborn_Controller.cs" />
     <Compile Include="GUI\ConnectionWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,24 +85,17 @@
       <DependentUpon>Portraits.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Portrait_Controls\Base_Other_Players.cs" />
-    <Compile Include="GUI\Portrait_Controls\CharacterSelection.cs">
+    <Compile Include="GUI\CharacterForms\CharacterSelection.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Portrait_Controls\CharacterSelection.Designer.cs">
+    <Compile Include="GUI\CharacterForms\CharacterSelection.Designer.cs">
       <DependentUpon>CharacterSelection.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Portrait_Controls\Character_Form.cs">
+    <Compile Include="GUI\CharacterForms\Mistborn\Mistborn_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Portrait_Controls\Character_Form.Designer.cs">
-      <DependentUpon>Character_Form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\Portrait_Controls\GameSpecificCharacterSheets\CharacterFormFactory.cs" />
-    <Compile Include="GUI\Portrait_Controls\GameSpecificCharacterSheets\Mistborn.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\Portrait_Controls\GameSpecificCharacterSheets\Mistborn.Designer.cs">
-      <DependentUpon>Mistborn.cs</DependentUpon>
+    <Compile Include="GUI\CharacterForms\Mistborn\Mistborn_Form.Designer.cs">
+      <DependentUpon>Mistborn_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Portrait_Controls\GM_Player_Control.cs" />
     <Compile Include="GUI\Portrait_Controls\Other_Player_Portraits.cs" />
@@ -127,6 +131,9 @@
     <EmbeddedResource Include="GUI\BottomSection.resx">
       <DependentUpon>BottomSection.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\CharacterForms\Character_Form.resx">
+      <DependentUpon>Character_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\ConnectionWindow.resx">
       <DependentUpon>ConnectionWindow.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -138,15 +145,11 @@
       <DependentUpon>Portraits.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Portrait_Controls\CharacterSelection.resx">
+    <EmbeddedResource Include="GUI\CharacterForms\CharacterSelection.resx">
       <DependentUpon>CharacterSelection.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Portrait_Controls\Character_Form.resx">
-      <DependentUpon>Character_Form.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Portrait_Controls\GameSpecificCharacterSheets\Mistborn.resx">
-      <DependentUpon>Mistborn.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\CharacterForms\Mistborn\Mistborn_Form.resx">
+      <DependentUpon>Mistborn_Form.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI_Frame.resx">

@@ -1,6 +1,4 @@
 ﻿using Character;
-using CharacterTableTop.GUI.Portrait_Controls;
-using CharacterTableTop.GUI.Portrait_Controls.GameSpecificCharacterSheets;
 using Shared_Resources;
 using System;
 using System.Collections.Generic;

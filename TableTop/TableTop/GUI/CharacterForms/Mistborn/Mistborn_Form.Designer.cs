@@ -1,6 +1,6 @@
-﻿namespace CharacterTableTop.GUI.Portrait_Controls.GameSpecificCharacterSheets
+﻿namespace TableTop.GUI.CharacterForms.Mistborn
 {
-    partial class Mistborn
+    partial class Mistborn_Form
     {
         /// <summary>
         /// Required designer variable.

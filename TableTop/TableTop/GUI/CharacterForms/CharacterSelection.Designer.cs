@@ -1,4 +1,4 @@
-﻿namespace TableTop.GUI.Portrait_Controls
+﻿namespace TableTop.GUI.CharacterForms
 {
     partial class CharacterSelection
     {

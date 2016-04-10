@@ -35,7 +35,7 @@
             // 
             // PortraitPane
             // 
-            this.PortraitPane.BackColor = System.Drawing.Color.DarkViolet;
+            this.PortraitPane.BackColor = System.Drawing.Color.Gray;
             this.PortraitPane.Dock = System.Windows.Forms.DockStyle.Right;
             this.PortraitPane.Location = new System.Drawing.Point(1384, 0);
             this.PortraitPane.Name = "PortraitPane";
@@ -54,7 +54,7 @@
             // GameGrid
             // 
             this.GameGrid.AutoScroll = true;
-            this.GameGrid.BackColor = System.Drawing.Color.ForestGreen;
+            this.GameGrid.BackColor = System.Drawing.SystemColors.Control;
             this.GameGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GameGrid.Location = new System.Drawing.Point(0, 0);
             this.GameGrid.Name = "GameGrid";

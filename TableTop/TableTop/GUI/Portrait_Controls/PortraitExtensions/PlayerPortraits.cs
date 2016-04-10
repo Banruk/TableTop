@@ -1,6 +1,4 @@
 ﻿using Character;
-using CharacterTableTop.GUI.Portrait_Controls;
-using CharacterTableTop.GUI.Portrait_Controls.GameSpecificCharacterSheets;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,14 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TableTop.GUI.Portrait_Controls.GameSpecificCharacterSheets;
+using TableTop.GUI.CharacterForms;
 
 namespace TableTop.GUI.Portrait_Controls.PortraitExtensions
 {
     public partial class PlayerPortraits : Portraits
     {
         protected List<Base_Other_Players> portraits;
-        protected Character_Form character; 
+        protected Character_Form_Driver character_driver; 
 
         public PlayerPortraits()
             :base()
@@ -32,12 +30,13 @@ namespace TableTop.GUI.Portrait_Controls.PortraitExtensions
             controller = new Player_GUI_Controller(this);
             portraits = new List<Base_Other_Players>();
 
-            character = CharacterFormFactory.formFactory(MainGUI.gameMode);
+            //character_driver = CharacterFormFactory.formFactory(MainGUI.gameMode);
+            character_driver = new Character_Form_Driver(MainGUI.gameMode);
 
-            mainGUI.Controls.Add(character);
+            mainGUI.Controls.Add(character_driver.getCharacterForm());
 
-            PortraitPane.Controls.Add(character.controller.getPortraitPane());
-            character.controller.getPortraitPane().Show();
+            PortraitPane.Controls.Add(character_driver.getPortraitPane());
+            character_driver.getPortraitPane().Show();
         }
 
 

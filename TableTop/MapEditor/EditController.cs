@@ -17,25 +17,28 @@ namespace MapEditor
             this.editor = editor;
         }
 
-        public void newMap(int X, int Y)
+        public void newMap(int X, int Y, int Z)
         {
             destroyTiles();
 
-            tiles = new TileController(X, Y);
+            tiles = new TileController(X, Y, Z);
             setEditor();
 
         } // End newMap
 
         public void setEditor()
         {
-            for (int i = 0; i < tiles.Y; i++)
+            for (int k = 0; k < tiles.Z; k++)
             {
-                for (int j = 0; j < tiles.X; ++j)
+                for (int i = 0; i < tiles.Y; i++)
                 {
-                    tiles.tiles[i][j].getTile().Click += editor.tileClick;
+                    for (int j = 0; j < tiles.X; ++j)
+                    {
+                        tiles.tiles[k][i][j].getTile().Click += editor.tileClick;
+                    }
                 }
             }
-        }
+        } // End setEditor
 
         protected void destroyTiles()
         {
@@ -43,13 +46,15 @@ namespace MapEditor
 
             if (tiles == null)
                 return;
-
-            for (int i = 0; i < tiles.Y; ++i)
+            for (int k = 0; k < tiles.Z; k++)
             {
-                for (int j = 0; j < tiles.X; ++j)
+                for (int i = 0; i < tiles.Y; ++i)
                 {
-                    tiles.tiles[i][j].getTile().Dispose();
-                    tiles.tiles[i][j] = null;
+                    for (int j = 0; j < tiles.X; ++j)
+                    {
+                        tiles.tiles[k][i][j].getTile().Dispose();
+                        tiles.tiles[k][i][j] = null;
+                    }
                 }
             }
 
