@@ -370,6 +370,7 @@
             this.Controls.Add(this.LoadCharacterButton);
             this.Controls.Add(this.CloseButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Location = new System.Drawing.Point(200, 25);
             this.Name = "Character_Form";
             this.Text = "Character_Form";
             this.panel1.ResumeLayout(false);

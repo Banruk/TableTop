@@ -10,5 +10,5 @@ namespace Shared_Resources
      *  Just a set of delegates to be used throught the project
      */
     public delegate void takes_string(String input_string);
-
+    public delegate void takes_nothing();
 }

@@ -21,10 +21,6 @@
         /// A display of this character's portrait.  This pane serves as the button for making the character details window visible on the main GUI
         /// </summary>
         protected Panel portrait_pane = null;
-        /// <summary>
-        /// Popup window from within the character details window.  It is used to load this character's data
-        /// </summary>
-        protected CharacterSelection character_selection;
 
         /// <summary>
         /// Begin initialization
@@ -47,10 +43,6 @@
             TabStop();
             buildPortraitPane();
 
-            character_selection = new CharacterSelection(this);
-            Controls.Add(character_selection);
-            character_selection.Hide();
-
             CloseButton.Click += controller.closeWindow;
             LoadCharacterButton.Click += controller.loadCharacter;
 
@@ -58,7 +50,6 @@
             LoadSpriteButton.Click += controller.loadImage;
             portrait_pane.Click += controller.portraitClick;
 
-            character_selection.load_xml += controller.load_XML;
         }
 
         /// <summary>
@@ -149,17 +140,6 @@
         public Panel getPortraitPane()
         {
             return portrait_pane;
-        }
-
-        /// <summary>
-        /// Makes the character selection popup window to repopulate and become visible
-        /// This window is used for loading the character sheet XML file
-        /// </summary>
-        public void ShowCharacterSelection()
-        {
-            character_selection.LoadSelections();
-            character_selection.BringToFront();
-            character_selection.Show();
         }
 
         /// <summary>

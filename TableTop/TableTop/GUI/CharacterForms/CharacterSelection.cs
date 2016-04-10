@@ -14,16 +14,14 @@ namespace TableTop.GUI.CharacterForms
 {
     public partial class CharacterSelection : Form
     {
-        Character_Form character_form;
         public takes_string load_xml;
 
-        public CharacterSelection(Character_Form form)
+        public CharacterSelection()
         {
             InitializeComponent();
 
             TopLevel = false;
 
-            character_form = form;
             CharacterSelectionBox.Padding = new Padding(10);
 
             LoadButton.Click += LoadButton_Click;
@@ -61,6 +59,13 @@ namespace TableTop.GUI.CharacterForms
         protected void CloseButton_Click(object sender, EventArgs e)
         {
             Hide();
+        }
+
+        public new void Show()
+        {
+            LoadSelections();
+            BringToFront();
+            base.Show();
         }
 
         class MyListItem : ListViewItem
