@@ -11,11 +11,16 @@
     /*
      *  Just a set of delegates to be used throught the project
      */
+    public delegate String returns_string();
+    public delegate Boolean returns_boolean();
+
     public delegate void takes_int(int input_int);
     public delegate void takes_string(String input_string);
     public delegate void takes_nothing();
     public delegate void takes_image(Image input_image);
     public delegate void takes_panel(Panel input_image);
 
+    public delegate void SendMessage(String chatType, String message);
+    public delegate void RecieveMessage(String chatType, String message, Color color);
     public delegate void takes_int_and_CharacterSheet(int input_int, CharacterSheet input_sheet);
 }

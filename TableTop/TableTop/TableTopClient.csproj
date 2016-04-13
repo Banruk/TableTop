@@ -47,125 +47,131 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GUI\BottomSection.cs">
+    <Compile Include="GUI\GUI_Frame_Controller.cs" />
+    <Compile Include="GUI\GUI_Frame_Driver.cs" />
+    <Compile Include="GUI\LoginScreen\LoginScreen_GUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\BottomSection.Designer.cs">
-      <DependentUpon>BottomSection.cs</DependentUpon>
+    <Compile Include="GUI\LoginScreen\LoginScreen_GUI.Designer.cs">
+      <DependentUpon>LoginScreen_GUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\CharacterForms\Character_Form.cs">
+    <Compile Include="GUI\MainGUI\BottomSection\BottomSection_GUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\CharacterForms\Character_Form.Designer.cs">
+    <Compile Include="GUI\MainGUI\BottomSection\BottomSection_GUI.Designer.cs">
+      <DependentUpon>BottomSection_GUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\MainGUI\BottomSection\BottomSection_Controller.cs" />
+    <Compile Include="GUI\MainGUI\BottomSection\BottomSection_Driver.cs" />
+    <Compile Include="GUI\MainGUI\CharacterForms\Character_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\MainGUI\CharacterForms\Character_Form.Designer.cs">
       <DependentUpon>Character_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\CharacterForms\Character_Form_Controller.cs" />
-    <Compile Include="GUI\CharacterForms\Character_Form_Controller_Interface.cs" />
-    <Compile Include="GUI\CharacterForms\Character_Form_Driver.cs" />
-    <Compile Include="GUI\CharacterForms\Character_Form_Interface.cs" />
-    <Compile Include="GUI\CharacterForms\Mistborn\Mistborn_Controller.cs" />
-    <Compile Include="GUI\ConnectionWindow.cs">
+    <Compile Include="GUI\MainGUI\CharacterForms\Character_Form_Controller.cs" />
+    <Compile Include="GUI\MainGUI\CharacterForms\Character_Form_Controller_Interface.cs" />
+    <Compile Include="GUI\MainGUI\CharacterForms\Character_Form_Driver.cs" />
+    <Compile Include="GUI\MainGUI\CharacterForms\Character_Form_Interface.cs" />
+    <Compile Include="GUI\MainGUI\CharacterForms\Mistborn\Mistborn_Controller.cs" />
+    <Compile Include="GUI\MainGUI\GameField\Game_Field.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\ConnectionWindow.Designer.cs">
-      <DependentUpon>ConnectionWindow.cs</DependentUpon>
+    <Compile Include="GUI\MainGUI\GameField\Game_Field.Designer.cs">
+      <DependentUpon>Game_Field.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\GameField\GameField.cs">
+    <Compile Include="GUI\MainGUI\GameField\Tiles\BaseTile.cs" />
+    <Compile Include="GUI\MainGUI\GameField\Tiles\TileController.cs" />
+    <Compile Include="GUI\MainGUI\Main_GUI_Controller.cs" />
+    <Compile Include="GUI\MainGUI\Main_GUI_Driver.cs" />
+    <Compile Include="GUI\MainGUI\PortraitControls\GM_Portraits\GM_Portraits_Controller.cs" />
+    <Compile Include="GUI\MainGUI\PortraitControls\GM_Portraits\GM_Portraits_GUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\GameField\GameField.Designer.cs">
-      <DependentUpon>GameField.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\GameField\Tiles\BaseTile.cs" />
-    <Compile Include="GUI\GameField\Tiles\TileController.cs" />
-    <Compile Include="GUI\Portrait_Controls\GM_Portraits\GM_Portraits_Controller.cs" />
-    <Compile Include="GUI\Portrait_Controls\GM_Portraits\GM_Portraits_GUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\Portrait_Controls\GM_Portraits\GM_Portraits_GUI.Designer.cs">
+    <Compile Include="GUI\MainGUI\PortraitControls\GM_Portraits\GM_Portraits_GUI.Designer.cs">
       <DependentUpon>GM_Portraits_GUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Portrait_Controls\Portraits_GUI.cs">
+    <Compile Include="GUI\MainGUI\PortraitControls\Portraits_GUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Portrait_Controls\Portraits_GUI.Designer.cs">
+    <Compile Include="GUI\MainGUI\PortraitControls\Portraits_GUI.Designer.cs">
       <DependentUpon>Portraits_GUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Portrait_Controls\Base_Other_Players.cs" />
-    <Compile Include="GUI\CharacterForms\CharacterSelection.cs">
+    <Compile Include="GUI\MainGUI\PortraitControls\Base_Other_Players.cs" />
+    <Compile Include="GUI\MainGUI\CharacterForms\CharacterSelection.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\CharacterForms\CharacterSelection.Designer.cs">
+    <Compile Include="GUI\MainGUI\CharacterForms\CharacterSelection.Designer.cs">
       <DependentUpon>CharacterSelection.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\CharacterForms\Mistborn\Mistborn_Form.cs">
+    <Compile Include="GUI\MainGUI\CharacterForms\Mistborn\Mistborn_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\CharacterForms\Mistborn\Mistborn_Form.Designer.cs">
+    <Compile Include="GUI\MainGUI\CharacterForms\Mistborn\Mistborn_Form.Designer.cs">
       <DependentUpon>Mistborn_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Portrait_Controls\GM_Portraits\GM_Player_Control.cs" />
-    <Compile Include="GUI\Portrait_Controls\Player_Portraits\Other_Player_Portraits.cs" />
-    <Compile Include="GUI\Portrait_Controls\PlayerController.cs" />
-    <Compile Include="GUI\Portrait_Controls\Player_Portraits\PlayerPortraits_Driver.cs" />
-    <Compile Include="GUI\Portrait_Controls\Player_Portraits\PlayerPortrait_Controller.cs" />
-    <Compile Include="GUI\Portrait_Controls\Player_Portraits\PlayerPortrait_GUI.cs">
+    <Compile Include="GUI\MainGUI\PortraitControls\GM_Portraits\GM_Player_Control.cs" />
+    <Compile Include="GUI\MainGUI\PortraitControls\Player_Portraits\Other_Player_Portraits.cs" />
+    <Compile Include="GUI\MainGUI\PortraitControls\PlayerController.cs" />
+    <Compile Include="GUI\MainGUI\PortraitControls\Player_Portraits\PlayerPortraits_Driver.cs" />
+    <Compile Include="GUI\MainGUI\PortraitControls\Player_Portraits\PlayerPortrait_Controller.cs" />
+    <Compile Include="GUI\MainGUI\PortraitControls\Player_Portraits\PlayerPortrait_GUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Portrait_Controls\Player_Portraits\PlayerPortrait_GUI.Designer.cs">
+    <Compile Include="GUI\MainGUI\PortraitControls\Player_Portraits\PlayerPortrait_GUI.Designer.cs">
       <DependentUpon>PlayerPortrait_GUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Portrait_Controls\Portraits_Controller.cs" />
-    <Compile Include="GUI\Portrait_Controls\Portraits_Driver.cs" />
-    <Compile Include="GUI_Frame.cs">
+    <Compile Include="GUI\MainGUI\PortraitControls\Portraits_Controller.cs" />
+    <Compile Include="GUI\MainGUI\PortraitControls\Portraits_Driver.cs" />
+    <Compile Include="GUI\GUI_Frame.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI_Frame.Designer.cs">
+    <Compile Include="GUI\GUI_Frame.Designer.cs">
       <DependentUpon>GUI_Frame.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\MainGUI.cs">
+    <Compile Include="GUI\MainGUI\Main_GUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\MainGUI.Designer.cs">
-      <DependentUpon>MainGUI.cs</DependentUpon>
+    <Compile Include="GUI\MainGUI\Main_GUI.Designer.cs">
+      <DependentUpon>Main_GUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="MagicalData.cs" />
     <Compile Include="Main_Driver.cs" />
     <Compile Include="Misc\Colors.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WCF\WCF_Client.cs" />
-    <EmbeddedResource Include="GUI\BottomSection.resx">
-      <DependentUpon>BottomSection.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\LoginScreen\LoginScreen_GUI.resx">
+      <DependentUpon>LoginScreen_GUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\CharacterForms\Character_Form.resx">
+    <EmbeddedResource Include="GUI\MainGUI\BottomSection\BottomSection_GUI.resx">
+      <DependentUpon>BottomSection_GUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\MainGUI\CharacterForms\Character_Form.resx">
       <DependentUpon>Character_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\ConnectionWindow.resx">
-      <DependentUpon>ConnectionWindow.cs</DependentUpon>
-      <SubType>Designer</SubType>
+    <EmbeddedResource Include="GUI\MainGUI\GameField\Game_Field.resx">
+      <DependentUpon>Game_Field.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\GameField\GameField.resx">
-      <DependentUpon>GameField.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Portrait_Controls\Portraits_GUI.resx">
+    <EmbeddedResource Include="GUI\MainGUI\PortraitControls\Portraits_GUI.resx">
       <DependentUpon>Portraits_GUI.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\CharacterForms\CharacterSelection.resx">
+    <EmbeddedResource Include="GUI\MainGUI\CharacterForms\CharacterSelection.resx">
       <DependentUpon>CharacterSelection.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\CharacterForms\Mistborn\Mistborn_Form.resx">
+    <EmbeddedResource Include="GUI\MainGUI\CharacterForms\Mistborn\Mistborn_Form.resx">
       <DependentUpon>Mistborn_Form.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Portrait_Controls\Player_Portraits\PlayerPortrait_GUI.resx">
+    <EmbeddedResource Include="GUI\MainGUI\PortraitControls\Player_Portraits\PlayerPortrait_GUI.resx">
       <DependentUpon>PlayerPortrait_GUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI_Frame.resx">
+    <EmbeddedResource Include="GUI\GUI_Frame.resx">
       <DependentUpon>GUI_Frame.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\MainGUI.resx">
-      <DependentUpon>MainGUI.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\MainGUI\Main_GUI.resx">
+      <DependentUpon>Main_GUI.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -1,13 +1,17 @@
-﻿using System;
+﻿using Character;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TableTop.GUI;
 
 namespace TableTop
 {
-    static class Main_Driver
+    class Main_Driver
     {
+
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,7 +20,11 @@ namespace TableTop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GUI_Frame());
+
+            GUI_Frame_Driver gui_driver = new GUI_Frame_Driver();
+
+
+            Application.Run(gui_driver.getFrame());
         }
     }
 }
