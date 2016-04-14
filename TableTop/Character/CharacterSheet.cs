@@ -69,5 +69,10 @@ namespace Character
         [DataMember]
         public String Description;
 
+
+        public String getFirstName()
+        {
+            return FirstName;
+        }
     }
 }

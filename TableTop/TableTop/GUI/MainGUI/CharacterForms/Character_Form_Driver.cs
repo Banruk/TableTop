@@ -15,17 +15,6 @@
     /// </summary>
     public class Character_Form_Driver
     {
-        public returns_string get_UserName
-        {
-            get
-            {
-                return controller.get_UserName;
-            }
-            set
-            {
-                controller.get_UserName = value;
-            }
-        }
         public returns_boolean get_GM_eh
         {
             get
@@ -46,6 +35,7 @@
             set
             {
                 select.get_gameMode = value;
+                controller.get_GameType = value;
             }
         }
         /// <summary>

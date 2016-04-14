@@ -24,8 +24,7 @@
         /// </summary>
         public CharacterSheet character_sheet;
         public takes_nothing showLoadScreen;
-
-        public returns_string get_UserName;
+        public returns_string get_GameType;
         public returns_boolean GM_eh;
 
         /// <summary>
@@ -155,12 +154,12 @@
        /// </summary>
         public void save_XML()
         {
-            if (!System.IO.Directory.Exists(System.IO.Path.GetDirectoryName(Application.ExecutablePath) + @"\Characters\" + get_UserName() + @"\"))
+            if (!System.IO.Directory.Exists(System.IO.Path.GetDirectoryName(Application.ExecutablePath) + @"\Characters\" + get_GameType() + @"\"))
             {
-                System.IO.Directory.CreateDirectory(System.IO.Path.GetDirectoryName(Application.ExecutablePath) + @"\Characters\" + get_UserName() + @"\");
+                System.IO.Directory.CreateDirectory(System.IO.Path.GetDirectoryName(Application.ExecutablePath) + @"\Characters\" + get_GameType() + @"\");
             }
 
-            String file_path = System.IO.Path.GetDirectoryName(Application.ExecutablePath) + @"\Characters\" + get_UserName() + @"\" + character_sheet.FirstName + "_" + character_sheet.LastName + ".xml";
+            String file_path = System.IO.Path.GetDirectoryName(Application.ExecutablePath) + @"\Characters\" + get_GameType() + @"\" + character_sheet.FirstName + "_" + character_sheet.LastName + ".xml";
             Serialization.xml_serialize(character_sheet, character_sheet.GetType(), file_path);
         }
 

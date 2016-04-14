@@ -128,7 +128,6 @@ namespace TableTop.GUI.MainGUI
             // Main GUI link to Character
             if (driver_character != null)
             {
-                driver_character.get_UserName = get_username;
                 driver_character.get_GM_eh = get_isGM;
                 driver_character.get_GameMode = get_GameMode;
             }
@@ -139,7 +138,7 @@ namespace TableTop.GUI.MainGUI
             // Link bottom pane to character form
             if(driver_character != null)
             {
-                driver_bottomPane.get_character_name = driver_character.get_UserName; // NULL
+                driver_bottomPane.get_character_name = character.getFirstName; // NULL
                 driver_portrait.AddMyPortrait(driver_character.getPortraitPane());
             }
 

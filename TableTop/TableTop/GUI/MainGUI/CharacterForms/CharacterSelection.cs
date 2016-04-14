@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -32,6 +33,11 @@ namespace TableTop.GUI.CharacterForms
         public void LoadSelections()
         {
             String filePath = System.IO.Path.GetDirectoryName(Application.ExecutablePath) + @"\Characters\" + get_gameMode();
+
+            if (!Directory.Exists(filePath))
+            {
+                Directory.CreateDirectory(filePath);
+            }
 
             CharacterSelectionBox.DataSource = null;
             String reg = @"[^\\]*[.]xml$";
