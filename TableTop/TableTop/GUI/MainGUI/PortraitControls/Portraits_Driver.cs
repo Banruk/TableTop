@@ -17,22 +17,37 @@
         Portraits_GUI gui;
         Portraits_Controller controller;
 
+        /// <summary>
+        /// Removes the portrait belonging to the passed Client ID
+        /// </summary>
         public takes_int removePortrait
         {
             get;
             private set;
         }
+        /// <summary>
+        /// Adds an empty portraits for another character, and link it to the passed Client ID
+        /// Called externally.
+        /// </summary>
         public takes_int addPortrait
         {
             get;
             private set;
         }
+        /// <summary>
+        /// Updates a user's portrait based on client ID
+        /// Called externally.
+        /// </summary>
         public takes_int_and_CharacterSheet updateCharacter
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// Driver that builds, links, and manages the portrait container UI
+        /// </summary>
+        /// <param name="is_gm">Is the current user the GM</param>
         public Portraits_Driver(Boolean is_gm)
         {
             if (is_gm)
@@ -60,11 +75,19 @@
             gui.Show();
         }
 
+        /// <summary>
+        /// Used to get the Portraits UI
+        /// </summary>
+        /// <returns></returns>
         public Portraits_GUI GetPortraitGUI()
         {
             return gui;
         }
 
+        /// <summary>
+        /// Used to add the current user's portrait
+        /// </summary>
+        /// <param name="input_panel"></param>
         public void AddMyPortrait(Panel input_panel)
         {
             gui.addPortrait(input_panel);

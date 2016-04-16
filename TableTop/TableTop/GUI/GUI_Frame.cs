@@ -57,6 +57,11 @@
             this.FormClosed += closeWindow;
         }
 
+        /// <summary>
+        /// Makes sure the server knows we're logging out when we close the window.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void closeWindow(object sender, EventArgs e)
         {
             try // todo: fix this

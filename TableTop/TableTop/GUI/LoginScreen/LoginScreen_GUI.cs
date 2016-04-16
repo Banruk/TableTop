@@ -15,7 +15,13 @@ namespace TableTop.GUI.LoginScreen
     public delegate void login_method(String userName, String IP, Boolean isGM, String gameMode, takes_string error_reporting);
     public partial class LoginScreen_GUI : Form
     {
+        /// <summary>
+        /// Delegate to the method used to login to the server
+        /// </summary>
         login_method login;
+        /// <summary>
+        /// All the game modes
+        /// </summary>
         public String[] selections
         {
             set
@@ -25,6 +31,10 @@ namespace TableTop.GUI.LoginScreen
                 
         }
 
+        /// <summary>
+        /// Set up the login screen
+        /// </summary>
+        /// <param name="method">Delegate reference for the method to be fired when logging in</param>
         public LoginScreen_GUI(login_method method)
         {
             InitializeComponent();
@@ -46,6 +56,11 @@ namespace TableTop.GUI.LoginScreen
             ServerIP.Text = "127.0.0.1:8733";
         }
 
+        /// <summary>
+        /// Varifies that the connection information is correct, then calls the login delegate
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void ConnectionButton_Click(object sender, EventArgs e)
         {
             ToolTip tip = new ToolTip();
@@ -76,11 +91,20 @@ namespace TableTop.GUI.LoginScreen
             }
         } // End ConnectionButton_Click
 
+        /// <summary>
+        /// Method for outside sources to report an error to the login UI
+        /// </summary>
+        /// <param name="message">Message to display to the screen</param>
         public void error_reporting(String message)
         {
             errorLbl.Text = message;
         }
         
+        /// <summary>
+        /// Shows some shit when the Is GM checkbox is selected, or hides it when it's unchecked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void isGM_selected(object sender, EventArgs e)
         {
             if (isGM.Checked)

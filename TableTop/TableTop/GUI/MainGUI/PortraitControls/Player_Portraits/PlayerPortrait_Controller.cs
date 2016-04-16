@@ -12,53 +12,23 @@
 
     class PlayerPortrait_Controller: Portraits_Controller
     {
-        protected List<Base_Other_Players> portraits;
-
-        public takes_panel addPlayer
-        {
-            get;
-            private set;
-        }
-        
         public PlayerPortrait_Controller()
+            :base()
         {
-            portraits = new List<Base_Other_Players>();
+
         }
 
+        /// <summary>
+        /// Method to add a new portrait panel to the Portrait's UI
+        /// </summary>
+        /// <param name="client_id">Client ID for the new portrait</param>
         override public void addPortrait(int client_id)
         {
             Other_Player_Portraits new_player = new Other_Player_Portraits(client_id);
             portraits.Add(new_player);
 
-            base.add_portrait(new_player.getPortrait());
+            add_portrait(new_player.getPortrait());
         }
 
-        override public void updateCharacter(int client_id, CharacterSheet updateCharacter)
-        {
-            foreach (Base_Other_Players tmp in portraits)
-            {
-                if (tmp.client_id == client_id)
-                {
-                    if (updateCharacter == null)
-                    {
-                        updateCharacter = new CharacterSheet();
-                    }
-                    tmp.updatePortrait(updateCharacter.portrait); // updateCharacter is null
-                    break;
-                }
-            }
-        }
-
-        override public void removePortrait(int client_id)
-        {
-            foreach (Base_Other_Players tmp in portraits)
-            {
-                if (tmp.client_id == client_id)
-                {
-                    base.remove_portrait(tmp.getPortrait());
-                    break;
-                }
-            }
-        } // End removePortrait
     }
 }

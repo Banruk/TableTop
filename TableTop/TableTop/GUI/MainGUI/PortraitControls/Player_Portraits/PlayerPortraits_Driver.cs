@@ -20,7 +20,11 @@ namespace TableTop.GUI.Portrait_Controls.Player_Portraits
             controller.add_portrait += gui.addPortrait;
         }
 
-        public Form getPortraitPanel()
+        /// <summary>
+        /// Method to call to retrieve this driver's GUI
+        /// </summary>
+        /// <returns>Portrait Panel GUI</returns>
+        public Form getPortraitPanel() 
         {
             return gui;
         }

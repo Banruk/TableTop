@@ -33,6 +33,10 @@
             Show();
         }
 
+        /// <summary>
+        /// Add a new portrait to the GUI.
+        /// </summary>
+        /// <param name="new_portrait">Portrait Panel to add</param>
         public void addPortrait(Panel new_portrait)
         {
             this.BeginInvoke((MethodInvoker)delegate
@@ -43,6 +47,10 @@
             });
         }
 
+        /// <summary>
+        /// Remove a specific portrait from the GUI
+        /// </summary>
+        /// <param name="dead_portrait">Portrait Panel to remove</param>
         public void removePortrait(Panel dead_portrait)
         {
             this.BeginInvoke((MethodInvoker)delegate

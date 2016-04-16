@@ -9,40 +9,16 @@
     using System.Windows.Forms;
     using TableTop.Misc;
 
+    /// <summary>
+    /// Might not actually need this
+    /// </summary>
     public class Other_Player_Portraits : Base_Other_Players
     {
-        Panel otherPanel;
 
         public Other_Player_Portraits(int client_id)
             : base(client_id)
         {
-            otherPanel = new Panel();
 
-            otherPanel.Width = 150;
-            otherPanel.Height = 150;
-            otherPanel.Margin = new Padding(16, 0, 0, 16);
-
-            otherPanel.BackColor = Colors.ConvertColor(System.Configuration.ConfigurationManager.AppSettings["emptyPortraitColor"]);
-        }
-
-        override public Panel getPortrait()
-        {
-            return otherPanel;
-        }
-
-        override public void updatePortrait(Image new_portrait)
-        {
-            if (new_portrait != null)
-            {
-                getPortrait().BeginInvoke((MethodInvoker)delegate
-                {
-                    getPortrait().BackColor = Color.Transparent;
-                    if (new_portrait != null)
-                    {
-                        getPortrait().BackgroundImage = new_portrait; // breaks when null??
-                    }
-                });
-            }
         }
 
     }
