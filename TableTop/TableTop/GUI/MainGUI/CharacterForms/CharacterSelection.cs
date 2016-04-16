@@ -14,7 +14,13 @@ namespace TableTop.GUI.CharacterForms
 {
     public partial class CharacterSelection : Form
     {
+        /// <summary>
+        /// Delegate to the method that loads a character's XML file
+        /// </summary>
         public takes_string load_xml;
+        /// <summary>
+        /// Delegate to get the game mode
+        /// </summary>
         public returns_string get_gameMode;
 
         public CharacterSelection()
@@ -29,6 +35,9 @@ namespace TableTop.GUI.CharacterForms
             CancelButton.Click += CloseButton_Click;
         }
 
+        /// <summary>
+        /// Fills the Selection screen's XML selection portion with file names
+        /// </summary>
         public void LoadSelections()
         {
             String filePath = System.IO.Path.GetDirectoryName(Application.ExecutablePath) + @"\Characters\" + get_gameMode();
@@ -49,6 +58,11 @@ namespace TableTop.GUI.CharacterForms
             CharacterSelectionBox.DataSource = selections;
         }
 
+        /// <summary>
+        /// Handles load button click
+        /// </summary>
+        /// <param name="sender">Yup</param>
+        /// <param name="e">Whatever</param>
         protected void LoadButton_Click(object sender, EventArgs e)
         {
             String selected = ((MyListItem)CharacterSelectionBox.SelectedItem).Tag.ToString();
@@ -56,11 +70,19 @@ namespace TableTop.GUI.CharacterForms
             Hide();
         }
 
+        /// <summary>
+        /// Handles close window button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void CloseButton_Click(object sender, EventArgs e)
         {
             Hide();
         }
 
+        /// <summary>
+        /// Called to show the selection gui
+        /// </summary>
         public new void Show()
         {
             LoadSelections();
@@ -68,6 +90,9 @@ namespace TableTop.GUI.CharacterForms
             base.Show();
         }
 
+        /// <summary>
+        /// I think I needed to extend ListViewItem to force returning Text from ToString or something
+        /// </summary>
         class MyListItem : ListViewItem
         {
             public override string ToString()

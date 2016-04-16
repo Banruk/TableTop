@@ -27,6 +27,9 @@
             private set;
         }
 
+        /// <summary>
+        /// Blah blah construct driver to the Main Frame for the game
+        /// </summary>
         public GUI_Frame_Driver()
         {
             frame = new GUI_Frame();
@@ -43,6 +46,10 @@
             
         }
 
+        /// <summary>
+        /// Used to retrieve the GUI from this driver
+        /// </summary>
+        /// <returns>This frame for spawning</returns>
         public GUI_Frame getFrame()
         {
             return frame;
@@ -80,14 +87,11 @@
                 return ;
             }
 
-            Main_GUI_Driver.gameMode = gameMode;
-
-            Main_GUI_Driver main_driver = new Main_GUI_Driver(server, userName, isGM);
+            Main_GUI_Driver main_driver = new Main_GUI_Driver(server, userName, gameMode, isGM);
 
             //Main_GUI mainGUI = new Main_GUI(server, userName, isGM);
 
-            //Remove login window, start up game window
-
+            // Replace login window with the main gui
             frame.contentPane.Controls.Remove(current_form);
             frame.contentPane.Controls.Add(main_driver.getGUI());
 
